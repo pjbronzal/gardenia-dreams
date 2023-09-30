@@ -1,0 +1,52 @@
+.hero-header {
+  background-image: url("img/header-bg.jpg");
+  background-size: cover;
+  background-position: 50% 60%;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+  height: 250px;
+}
+
+.input-group input.form-control,
+.input-group button.btn {
+  border-radius: 0;
+}
+
+.btn-outline-success.dropdown-toggle,
+.dropdown-menu.show {
+  border-radius: 0;
+}
+
+.btn-group,
+.dropdown-menu.show {
+  width: 100%;
+}
+
+.product-category {
+  height: 60px;
+  width: 100%;
+  color: white;
+}
+
+.product-category .container {
+  justify-content: center;
+  margin: auto;
+}
+/* 
+.product-list img {
+  height: 200px;
+  width: 200px;
+} */
+
+.product-list .card {
+  border-radius: 0;
+  border: 1px solid green;
+  height: 360px;
+}
+
+@media (max-width: 768px) {
+  .hero-header {
+    padding: 60px 0;
+  }
+}
