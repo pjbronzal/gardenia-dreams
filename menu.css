@@ -42,7 +42,7 @@
 .product-list .card {
   border-radius: 0;
   border: 1px solid green;
-  height: 360px;
+  height: 380px;
 }
 
 @media (max-width: 768px) {
