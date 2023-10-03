@@ -67,12 +67,9 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-image: url(../images/flower-delivery-to-my-special-one.png);
     background-position: left;
     background-repeat: no-repeat;  
 }
-
 
   section h2 {
     color: gold1;
