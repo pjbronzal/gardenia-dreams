@@ -6,31 +6,59 @@ const products = {
   menulist: [
     {
       id: 1,
-      productName: "Flower Bouquets",
-      category: "bouquets",
-      price: 450,
-      image: "img/1.jpg",
+      productName: "Standard Heather",
+      category: "flower",
+      price: 1299,
+      image: "img/flowers/standard_heather.webp",
     },
     {
       id: 2,
-      productName: "Bag",
-      category: "bouquets",
-      price: 450,
-      image: "img/1.jpg",
+      productName: "Deluxe Heather",
+      category: "flower",
+      price: 1399,
+      image: "img/flowers/deluxe_heather.webp",
     },
     {
       id: 3,
-      productName: "Shirt",
-      category: "bouquets",
-      price: 450,
-      image: "img/1.jpg",
+      productName: "Beautiful You",
+      category: "flower",
+      price: 1399,
+      image: "img/flowers/beautiful_you.webp",
     },
     {
       id: 4,
-      productName: "Cap",
-      category: "bouquets",
-      price: 450,
-      image: "img/1.jpg",
+      productName: "Be In Love",
+      category: "flower",
+      price: 1199,
+      image: "img/flowers/be_in_love.webp",
+    },
+    {
+      id: 5,
+      productName: "Beauty And The Beast",
+      category: "flower",
+      price: 1299,
+      image: "img/flowers/pres_beauty-and-the-beast.webp",
+    },
+    {
+      id: 6,
+      productName: "Frozen In Time",
+      category: "flower",
+      price: 1499,
+      image: "img/flowers/pres_frozen-in-time.webp",
+    },
+    {
+      id: 7,
+      productName: "Luminous Belle Rose",
+      category: "flower",
+      price: 1299,
+      image: "img/flowers/pres_luminous-belle-rose.webp",
+    },
+    {
+      id: 8,
+      productName: "Violet Enchantment",
+      category: "flower",
+      price: 1299,
+      image: "img/flowers/pres_violet-enchantment.webp",
     },
   ],
   orderedlist: [],
@@ -46,7 +74,7 @@ const products = {
               <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
               <div class="card-body">
-                  <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
+                  <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
                   <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
                   
                   <!-- Add position-absolute to the container of the buttons -->
@@ -104,7 +132,7 @@ function addToWishlist(id) {
 
   orderedlist.push({
     id: new_id,
-    mealName: new_order,
+    productName: new_order,
     price: new_price,
     quantity: 1,
     item: "wishlist",
@@ -137,7 +165,7 @@ function addToCart(id) {
 
   orderedlist.push({
     id: new_id,
-    mealName: new_order,
+    productName: new_order,
     price: new_price,
     quantity: 1,
     item: "cart",
@@ -160,8 +188,10 @@ document.getElementById("search-button").addEventListener("click", function () {
     .getElementById("search-input")
     .value.toLowerCase();
 
-  const filteredProducts = products.menulist.filter((product) =>
-    product.productName.toLowerCase().includes(searchQuery)
+  const filteredProducts = products.menulist.filter(
+    (product) =>
+      product.productName.toLowerCase().includes(searchQuery) ||
+      product.category.toLowerCase().includes(searchQuery)
   );
 
   updateProductList(filteredProducts);
@@ -177,23 +207,23 @@ function updateProductList(filteredProducts) {
     filteredProducts.forEach(function (data) {
       menulist += `
       <div class="col-md-3 col-12">
-      <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
-          <p id="ids${data.id}" hidden>${data.id}</p>
-          <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
-  
-          <div class="card-body">
-              <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
-              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
-              
-              <!-- Add position-absolute to the container of the buttons -->
-              <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                  <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                  <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
-                  <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+          <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+              <p id="ids${data.id}" hidden>${data.id}</p>
+              <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
+      
+              <div class="card-body">
+                  <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+                  <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
+                  
+                  <!-- Add position-absolute to the container of the buttons -->
+                  <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                      <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                      <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                      <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+                  </div>
               </div>
           </div>
-      </div>
-      </div>
+        </div>
       `;
     });
   }
