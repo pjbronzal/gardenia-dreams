@@ -62,10 +62,59 @@ const products = {
     },
     {
       id: 9,
-      productName: "Aglaonema Snow White",
+      productName: "Aglaonema",
       category: "Plants",
       price: 799,
       image: "img/plants/aglaonema.jpg",
+    },
+    {
+      id: 10,
+      productName: "Anthurium Laceleaf",
+      category: "Plants",
+      price: 1099,
+      image: "img/plants/anthurium-laceleaf.webp",
+    },
+    {
+      id: 11,
+      productName: "Calathea Triostar",
+      category: "Plants",
+      price: 599,
+      image: "img/plants/calathea-triostar.jpg",
+    },
+    {
+      id: 12,
+      productName: "Silver King",
+      category: "Plants",
+      price: 599,
+      image: "img/plants/silver-king.png",
+    },
+    {
+      id: 13,
+      productName: "Echeveria Cat",
+      category: "Plants",
+      price: 799,
+      image: "img/plants/pot-echeveria-cat.webp",
+    },
+    {
+      id: 14,
+      productName: "Echeveria Corgi",
+      category: "Plants",
+      price: 999,
+      image: "img/plants/pot-echeveria-corgi.jpg",
+    },
+    {
+      id: 15,
+      productName: "Echeveria Elephant",
+      category: "Plants",
+      price: 799,
+      image: "img/plants/pot-echeveria-elephant.webp",
+    },
+    {
+      id: 16,
+      productName: "Echeveria Whale",
+      category: "Plants",
+      price: 799,
+      image: "img/plants/pot-echeveria-whale.jpg",
     },
   ],
   orderedlist: [],
@@ -75,7 +124,7 @@ const products = {
     this.menulist.forEach(function (data) {
       menulist += `
       
-        <div class="col-md-3 col-sm-12 col-12">
+        <div class="col-md-3 col-12">
           <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
               <p id="ids${data.id}" hidden>${data.id}</p>
               <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
@@ -84,7 +133,6 @@ const products = {
                   <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
                   <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
                   
-                  <!-- Add position-absolute to the container of the buttons -->
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
                       <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
                       <button class="btn btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
@@ -151,9 +199,7 @@ function addToWishlist(id) {
   window.location.href = window.location.href;
 
   // showorder();
-
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
-
   // updateTotal();
 }
 
@@ -183,9 +229,7 @@ function addToCart(id) {
   alert("Added To Cart.");
   window.location.href = window.location.href;
   // showorder();
-
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
-
   // updateTotal();
 }
 
@@ -214,24 +258,24 @@ function updateProductList(filteredProducts) {
   } else {
     filteredProducts.forEach(function (data) {
       menulist += `
-      <div class="col-md-3 col-12">
-          <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
-              <p id="ids${data.id}" hidden>${data.id}</p>
-              <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
+      <div class="col-3">
+        <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+          <p id="ids${data.id}" hidden>${data.id}</p>
+          <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
-              <div class="card-body">
-                  <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
-                  <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
-                  
-                  <!-- Add position-absolute to the container of the buttons -->
-                  <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                      <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                      <button class="btn btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
-                      <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
-                  </div>
+          <div class="card-body">
+              <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
+              
+              <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                  <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                  <button class="btn btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                  <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
               </div>
           </div>
         </div>
+      </div>
+
       `;
     });
   }

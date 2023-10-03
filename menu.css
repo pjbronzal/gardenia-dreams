@@ -15,7 +15,8 @@ header,
 #search-input,
 #search-button,
 .accordion-button,
-.accordion-collapse ul li {
+.accordion-collapse ul li,
+.dropdown-menu.show {
   font-size: 14px;
 }
 
@@ -86,4 +87,9 @@ span {
   padding: 2px 5px;
   font-size: 11px;
   border-radius: 4px;
+}
+
+.menu-footer p {
+  font-size: 14px;
+  color: #b2b2b2;
 }
