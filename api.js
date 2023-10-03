@@ -1,5 +1,5 @@
-let wishlistItem = "wishList_item_" + new Date().getTime();
-let cartItem = "cart_item_" + new Date().getTime();
+let wishlistItem = "wishlist";
+let cartItem = "cart";
 
 const products = {
   orderlist: [],
@@ -7,58 +7,65 @@ const products = {
     {
       id: 1,
       productName: "Standard Heather",
-      category: "flower",
+      category: "Flowers",
       price: 1299,
       image: "img/flowers/standard_heather.webp",
     },
     {
       id: 2,
       productName: "Deluxe Heather",
-      category: "flower",
+      category: "Flowers",
       price: 1399,
       image: "img/flowers/deluxe_heather.webp",
     },
     {
       id: 3,
       productName: "Beautiful You",
-      category: "flower",
+      category: "Flowers",
       price: 1399,
       image: "img/flowers/beautiful_you.webp",
     },
     {
       id: 4,
       productName: "Be In Love",
-      category: "flower",
+      category: "Flowers",
       price: 1199,
       image: "img/flowers/be_in_love.webp",
     },
     {
       id: 5,
       productName: "Beauty And The Beast",
-      category: "flower",
+      category: "Flowers",
       price: 1299,
       image: "img/flowers/pres_beauty-and-the-beast.webp",
     },
     {
       id: 6,
       productName: "Frozen In Time",
-      category: "flower",
+      category: "Flowers",
       price: 1499,
       image: "img/flowers/pres_frozen-in-time.webp",
     },
     {
       id: 7,
       productName: "Luminous Belle Rose",
-      category: "flower",
+      category: "Flowers",
       price: 1299,
       image: "img/flowers/pres_luminous-belle-rose.webp",
     },
     {
       id: 8,
       productName: "Violet Enchantment",
-      category: "flower",
+      category: "Flowers",
       price: 1299,
       image: "img/flowers/pres_violet-enchantment.webp",
+    },
+    {
+      id: 9,
+      productName: "Aglaonema Snow White",
+      category: "Plants",
+      price: 799,
+      image: "img/plants/aglaonema.jpg",
     },
   ],
   orderedlist: [],
@@ -68,7 +75,7 @@ const products = {
     this.menulist.forEach(function (data) {
       menulist += `
       
-        <div class="col-md-3 col-12">
+        <div class="col-md-3 col-sm-12 col-12">
           <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
               <p id="ids${data.id}" hidden>${data.id}</p>
               <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
@@ -79,9 +86,9 @@ const products = {
                   
                   <!-- Add position-absolute to the container of the buttons -->
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                      <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                      <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
-                      <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                      <button class="btn btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                      <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
                   </div>
               </div>
           </div>
@@ -141,6 +148,8 @@ function addToWishlist(id) {
 
   localStorage.setItem(wishlistItem, JSON.stringify(orderedlist));
   alert("Added To Wishlist.");
+  window.location.href = window.location.href;
+
   // showorder();
 
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
@@ -151,8 +160,6 @@ function addToWishlist(id) {
 // ADD TO CART *****************************************************************
 function addToCart(id) {
   let orderedlist = JSON.parse(localStorage.getItem(cartItem)) || [];
-
-  const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
 
   let new_id = document.getElementById("ids" + id).innerText;
   let new_order = document.getElementById("menu" + id).innerText;
@@ -174,6 +181,7 @@ function addToCart(id) {
 
   localStorage.setItem(cartItem, JSON.stringify(orderedlist));
   alert("Added To Cart.");
+  window.location.href = window.location.href;
   // showorder();
 
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
@@ -217,9 +225,9 @@ function updateProductList(filteredProducts) {
                   
                   <!-- Add position-absolute to the container of the buttons -->
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                      <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                      <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
-                      <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                      <button class="btn btn-sm me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                      <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
                   </div>
               </div>
           </div>
@@ -229,4 +237,27 @@ function updateProductList(filteredProducts) {
   }
 
   menu.innerHTML = menulist;
+}
+
+// FILTER BY CATEGORY **************************************************************************
+function filterProductsByCategory(category) {
+  const filteredProducts = products.menulist.filter(
+    (product) => product.category.toLowerCase() === category.toLowerCase()
+  );
+
+  updateProductList(filteredProducts);
+}
+
+// WISHLIST COUNT
+if (localStorage.getItem("wishlist")) {
+  const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
+  const count = wishlistItems.length;
+  document.getElementById("wishlistCount").textContent = count;
+}
+
+// CART COUNT
+if (localStorage.getItem("cart")) {
+  const wishlistItems = JSON.parse(localStorage.getItem("cart"));
+  const count = wishlistItems.length;
+  document.getElementById("cartCount").textContent = count;
 }
