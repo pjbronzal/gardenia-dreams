@@ -1,8 +1,7 @@
-// let wishlistItem = new Date().getTime();
 let wishlistItem = "wishList_item_" + new Date().getTime();
 let cartItem = "cart_item_" + new Date().getTime();
 
-const customer = {
+const products = {
   orderlist: [],
   menulist: [
     {
@@ -52,10 +51,30 @@ const customer = {
               <!-- Add position-absolute to the container of the buttons -->
               <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
                   <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                  <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
                   <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
               </div>
           </div>
       </div>
+  </div>
+
+  <!-- MODAL FOR ITEM VIEWING ----------------------------------------------------------------------------------->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
   `;
     });
@@ -65,7 +84,7 @@ const customer = {
 
 orderedlist = localStorage.getItem(wishlistItem);
 
-customer.showproducts();
+products.showproducts();
 
 // ADD TO WISHLIST *****************************************************************
 function addToWishlist(id) {
