@@ -13,21 +13,21 @@ const products = {
     },
     {
       id: 2,
-      productName: "Flower",
+      productName: "Bag",
       category: "bouquets",
       price: 450,
       image: "img/1.jpg",
     },
     {
       id: 3,
-      productName: "Flower Bouquets",
+      productName: "Shirt",
       category: "bouquets",
       price: 450,
       image: "img/1.jpg",
     },
     {
       id: 4,
-      productName: "Flower",
+      productName: "Cap",
       category: "bouquets",
       price: 450,
       image: "img/1.jpg",
@@ -39,24 +39,25 @@ const products = {
     let menulist = "";
     this.menulist.forEach(function (data) {
       menulist += `
-      <div class="col-md-3 col-12">
-      <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
-          <p id="ids${data.id}" hidden>${data.id}</p>
-          <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
-  
-          <div class="card-body">
-              <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
-              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
-              
-              <!-- Add position-absolute to the container of the buttons -->
-              <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                  <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                  <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
-                  <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+      
+        <div class="col-md-3 col-12">
+          <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+              <p id="ids${data.id}" hidden>${data.id}</p>
+              <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
+      
+              <div class="card-body">
+                  <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
+                  <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
+                  
+                  <!-- Add position-absolute to the container of the buttons -->
+                  <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                      <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                      <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                      <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+                  </div>
               </div>
           </div>
-      </div>
-  </div>
+        </div>
 
   <!-- MODAL FOR ITEM VIEWING ----------------------------------------------------------------------------------->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -150,4 +151,52 @@ function addToCart(id) {
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
 
   // updateTotal();
+}
+
+// SEARCH PRODUCTS *********************************************************************
+// Creating Filtered Container
+document.getElementById("search-button").addEventListener("click", function () {
+  const searchQuery = document
+    .getElementById("search-input")
+    .value.toLowerCase();
+
+  const filteredProducts = products.menulist.filter((product) =>
+    product.productName.toLowerCase().includes(searchQuery)
+  );
+
+  updateProductList(filteredProducts);
+});
+
+function updateProductList(filteredProducts) {
+  let menu = document.getElementById("menu-list");
+  let menulist = "";
+
+  if (filteredProducts.length === 0) {
+    menulist = "<p>No matching products found.</p>";
+  } else {
+    filteredProducts.forEach(function (data) {
+      menulist += `
+      <div class="col-md-3 col-12">
+      <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+          <p id="ids${data.id}" hidden>${data.id}</p>
+          <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
+  
+          <div class="card-body">
+              <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
+              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
+              
+              <!-- Add position-absolute to the container of the buttons -->
+              <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
+                  <button class="btn btn-sm btn-success me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
+                  <button class="btn btn-sm btn-success me-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i></button>
+                  <button class="btn btn-sm btn-success" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+              </div>
+          </div>
+      </div>
+      </div>
+      `;
+    });
+  }
+
+  menu.innerHTML = menulist;
 }
