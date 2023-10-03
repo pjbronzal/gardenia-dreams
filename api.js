@@ -1,4 +1,6 @@
-let newCustomer = new Date().getTime();
+// let wishlistItem = new Date().getTime();
+let wishlistItem = "wishList_item_" + new Date().getTime();
+let cartItem = "cart_item_" + new Date().getTime();
 
 const customer = {
   orderlist: [],
@@ -44,8 +46,8 @@ const customer = {
           <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
   
           <div class="card-body">
-              <h6 class="card-title fw-bold text-center" id="menu${data.productName}">${data.productName}</h6>
-              <p class="card-text text-center" id="price${data.price}">₱ ${data.price}.00</p>
+              <h6 class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</h6>
+              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
               
               <!-- Add position-absolute to the container of the buttons -->
               <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
@@ -61,43 +63,72 @@ const customer = {
   },
 };
 
-orderedlist = localStorage.getItem(newCustomer);
+orderedlist = localStorage.getItem(wishlistItem);
 
+customer.showproducts();
+
+// ADD TO WISHLIST *****************************************************************
 function addToWishlist(id) {
-  let orderedlist = JSON.parse(localStorage.getItem(newCustomer)) || [];
+  let orderedlist = JSON.parse(localStorage.getItem(wishlistItem)) || [];
 
   const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
 
-  if (existingItemIndex !== -1) {
-    alert("This item is already in your order."); //not working :<
-  } else {
-    let new_id = document.getElementById("ids" + id);
-    let new_order = document.getElementById("menu" + id);
-    let new_price = document.getElementById("price" + id);
-    // let new_price = parseFloat(
-    //   document
-    //     .getElementById("price" + id)
-    //     .innerText.replace("₱", "")
-    //     .replace(".00", "")
-    // );
+  let new_id = document.getElementById("ids" + id).innerText;
+  let new_order = document.getElementById("menu" + id).innerText;
+  let new_price = parseFloat(
+    document
+      .getElementById("price" + id)
+      .innerText.replace("₱", "")
+      .replace(".00", "")
+  );
 
-    orderedlist.push({
-      id: new_id,
-      productName: new_order,
-      price: new_price,
-      quantity: 1,
-      totalPrice: new_price,
-    });
+  orderedlist.push({
+    id: new_id,
+    mealName: new_order,
+    price: new_price,
+    quantity: 1,
+    item: "wishlist",
+    totalPrice: new_price,
+  });
 
-    localStorage.setItem(newCustomer, JSON.stringify(orderedlist));
-    // showorder();
+  localStorage.setItem(wishlistItem, JSON.stringify(orderedlist));
+  alert("Added To Wishlist.");
+  // showorder();
 
-    alert("Added To Wishlist.");
+  // document.querySelector(`button[data-id="${id}"]`).disabled = true;
 
-    // document.querySelector(`button[data-id="${id}"]`).disabled = true;
-  }
-  //   updateTotal();
+  // updateTotal();
 }
 
-customer.showproducts();
-// showorder();
+// ADD TO CART *****************************************************************
+function addToCart(id) {
+  let orderedlist = JSON.parse(localStorage.getItem(cartItem)) || [];
+
+  const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
+
+  let new_id = document.getElementById("ids" + id).innerText;
+  let new_order = document.getElementById("menu" + id).innerText;
+  let new_price = parseFloat(
+    document
+      .getElementById("price" + id)
+      .innerText.replace("₱", "")
+      .replace(".00", "")
+  );
+
+  orderedlist.push({
+    id: new_id,
+    mealName: new_order,
+    price: new_price,
+    quantity: 1,
+    item: "cart",
+    totalPrice: new_price,
+  });
+
+  localStorage.setItem(cartItem, JSON.stringify(orderedlist));
+  alert("Added To Cart.");
+  // showorder();
+
+  // document.querySelector(`button[data-id="${id}"]`).disabled = true;
+
+  // updateTotal();
+}
