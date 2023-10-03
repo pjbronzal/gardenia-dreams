@@ -1,15 +1,37 @@
+body {
+            
+  background-color: #feffed;
+}
+
 header {
+  margin: 0 2in;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  background-color: #feffed;
 }
   
   header img {
     width: 150px;
     height: auto;
   }
-  
+
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    ul {
+        display: none;
+    }
+
+}
+
   nav ul {
     list-style-type: none;
     margin: 0;
@@ -18,7 +40,7 @@ header {
   }
   
   nav ul li {
-    margin-right: 10px;
+    margin-right: 1em;
   }
 
   nav ul li:first-child {
@@ -41,9 +63,17 @@ header {
   }
 
   section {
-    padding: 40px;
-  }
-  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url(../images/flower-delivery-to-my-special-one.png);
+    background-position: left;
+    background-repeat: no-repeat;  
+}
+
+
   section h2 {
     color: gold1;
   }
@@ -53,14 +83,13 @@ header {
   }
   
   section a.cta-button {
-    display: inline-block;
-    background-color: gold1;
+    background-color: gold;
     color: indigo;
     padding: 10px 20px;
-    text-decoration: none;
     border-radius: 5px;
-    margin-top: 10px;
-  }
+    text-decoration: none;
+    font-weight: bold;
+}
   
   section ul {
     list-style-type: none;
@@ -80,11 +109,8 @@ header {
     justify-content: space-between;
     color: #feffed;
     filter: brightness(0.9); 
-    opacity: 0.8; /* image clarity*/
+    opacity: 0.8; 
   }
-  
-  
-  
   
   footer .column {
     flex-basis: 30%;
