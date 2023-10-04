@@ -9,112 +9,112 @@ const products = {
       productName: "Standard Heather",
       category: "Flowers",
       price: 1299,
-      image: "img/flowers/standard_heather.webp",
+      image: "../img/flowers/standard_heather.webp",
     },
     {
       id: 2,
       productName: "Deluxe Heather",
       category: "Flowers",
       price: 1399,
-      image: "img/flowers/deluxe_heather.webp",
+      image: "../img/flowers/deluxe_heather.webp",
     },
     {
       id: 3,
       productName: "Beautiful You",
       category: "Flowers",
       price: 1399,
-      image: "img/flowers/beautiful_you.webp",
+      image: "../img/flowers/beautiful_you.webp",
     },
     {
       id: 4,
       productName: "Be In Love",
       category: "Flowers",
       price: 1199,
-      image: "img/flowers/be_in_love.webp",
+      image: "../img/flowers/be_in_love.webp",
     },
     {
       id: 5,
       productName: "Beauty And The Beast",
       category: "Flowers",
       price: 1299,
-      image: "img/flowers/pres_beauty-and-the-beast.webp",
+      image: "../img/flowers/pres_beauty-and-the-beast.webp",
     },
     {
       id: 6,
       productName: "Frozen In Time",
       category: "Flowers",
       price: 1499,
-      image: "img/flowers/pres_frozen-in-time.webp",
+      image: "../img/flowers/pres_frozen-in-time.webp",
     },
     {
       id: 7,
       productName: "Luminous Belle Rose",
       category: "Flowers",
       price: 1299,
-      image: "img/flowers/pres_luminous-belle-rose.webp",
+      image: "../img/flowers/pres_luminous-belle-rose.webp",
     },
     {
       id: 8,
       productName: "Violet Enchantment",
       category: "Flowers",
       price: 1299,
-      image: "img/flowers/pres_violet-enchantment.webp",
+      image: "../img/flowers/pres_violet-enchantment.webp",
     },
     {
       id: 9,
       productName: "Aglaonema",
       category: "Plants",
       price: 799,
-      image: "img/plants/aglaonema.jpg",
+      image: "../img/plants/aglaonema.jpg",
     },
     {
       id: 10,
       productName: "Anthurium Laceleaf",
       category: "Plants",
       price: 1099,
-      image: "img/plants/anthurium-laceleaf.webp",
+      image: "../img/plants/anthurium-laceleaf.webp",
     },
     {
       id: 11,
       productName: "Calathea Triostar",
       category: "Plants",
       price: 599,
-      image: "img/plants/calathea-triostar.jpg",
+      image: "../img/plants/calathea-triostar.jpg",
     },
     {
       id: 12,
       productName: "Silver King",
       category: "Plants",
       price: 599,
-      image: "img/plants/silver-king.png",
+      image: "../img/plants/silver-king.png",
     },
     {
       id: 13,
       productName: "Echeveria Cat",
       category: "Plants",
       price: 799,
-      image: "img/plants/pot-echeveria-cat.webp",
+      image: "../img/plants/pot-echeveria-cat.webp",
     },
     {
       id: 14,
       productName: "Echeveria Corgi",
       category: "Plants",
       price: 999,
-      image: "img/plants/pot-echeveria-corgi.jpg",
+      image: "../img/plants/pot-echeveria-corgi.jpg",
     },
     {
       id: 15,
       productName: "Echeveria Elephant",
       category: "Plants",
       price: 799,
-      image: "img/plants/pot-echeveria-elephant.webp",
+      image: "../img/plants/pot-echeveria-elephant.webp",
     },
     {
       id: 16,
       productName: "Echeveria Whale",
       category: "Plants",
       price: 799,
-      image: "img/plants/pot-echeveria-whale.jpg",
+      image: "../img/plants/pot-echeveria-whale.jpg",
     },
   ],
   orderedlist: [],
@@ -184,6 +184,7 @@ function addToWishlist(id) {
       .innerText.replace("₱", "")
       .replace(".00", "")
   );
+  let new_image = document.getElementById("image" + id).src;
 
   orderedlist.push({
     id: new_id,
@@ -192,6 +193,7 @@ function addToWishlist(id) {
     quantity: 1,
     item: "wishlist",
     totalPrice: new_price,
+    image: new_image,
   });
 
   localStorage.setItem(wishlistItem, JSON.stringify(orderedlist));
@@ -215,6 +217,7 @@ function addToCart(id) {
       .innerText.replace("₱", "")
       .replace(".00", "")
   );
+  let new_image = document.getElementById("image" + id).src;
 
   orderedlist.push({
     id: new_id,
@@ -223,6 +226,7 @@ function addToCart(id) {
     quantity: 1,
     item: "cart",
     totalPrice: new_price,
+    image: new_image,
   });
 
   localStorage.setItem(cartItem, JSON.stringify(orderedlist));
@@ -290,18 +294,4 @@ function filterProductsByCategory(category) {
   );
 
   updateProductList(filteredProducts);
-}
-
-// WISHLIST COUNT
-if (localStorage.getItem("wishlist")) {
-  const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
-  const count = wishlistItems.length;
-  document.getElementById("wishlistCount").textContent = count;
-}
-
-// CART COUNT
-if (localStorage.getItem("cart")) {
-  const wishlistItems = JSON.parse(localStorage.getItem("cart"));
-  const count = wishlistItems.length;
-  document.getElementById("cartCount").textContent = count;
 }
