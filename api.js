@@ -184,6 +184,7 @@ function addToWishlist(id) {
       .innerText.replace("₱", "")
       .replace(".00", "")
   );
+  let new_image = document.getElementById("image" + id).src;
 
   orderedlist.push({
     id: new_id,
@@ -192,6 +193,7 @@ function addToWishlist(id) {
     quantity: 1,
     item: "wishlist",
     totalPrice: new_price,
+    image: new_image,
   });
 
   localStorage.setItem(wishlistItem, JSON.stringify(orderedlist));
@@ -215,6 +217,7 @@ function addToCart(id) {
       .innerText.replace("₱", "")
       .replace(".00", "")
   );
+  let new_image = document.getElementById("image" + id).src;
 
   orderedlist.push({
     id: new_id,
@@ -223,6 +226,7 @@ function addToCart(id) {
     quantity: 1,
     item: "cart",
     totalPrice: new_price,
+    image: new_image,
   });
 
   localStorage.setItem(cartItem, JSON.stringify(orderedlist));
@@ -290,18 +294,4 @@ function filterProductsByCategory(category) {
   );
 
   updateProductList(filteredProducts);
-}
-
-// WISHLIST COUNT
-if (localStorage.getItem("wishlist")) {
-  const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
-  const count = wishlistItems.length;
-  document.getElementById("wishlistCount").textContent = count;
-}
-
-// CART COUNT
-if (localStorage.getItem("cart")) {
-  const wishlistItems = JSON.parse(localStorage.getItem("cart"));
-  const count = wishlistItems.length;
-  document.getElementById("cartCount").textContent = count;
 }

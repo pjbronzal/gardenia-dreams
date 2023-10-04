@@ -50,7 +50,8 @@ header,
   width: 100%;
 }
 
-#product-list {
+#product-list,
+#wish-list {
   margin-top: 130px;
 }
 
@@ -73,12 +74,40 @@ header,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-#menu-list .card-title {
+#wish-list .card {
+  border: 1px solid #fde3be;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#menu-list .card-title,
+#wish-list .card-title {
   font-size: 13px;
 }
 
-#menu-list .card-text {
+#menu-list .card-text,
+#wish-list .card-text,
+#wish-list .btn {
   font-size: 12px;
+}
+
+#wish-list .btn {
+  border: 1px solid black;
+}
+
+#wish-list .deleteWishItem {
+  border: 1px solid red;
+  color: red;
+}
+
+#wish-list .btn:hover {
+  background-color: black;
+  color: white;
+}
+
+#wish-list .deleteWishItem:hover {
+  background-color: red;
+  color: white;
 }
 
 span {
