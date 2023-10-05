@@ -488,7 +488,7 @@
 function getProductSlider() {
     const products = [
         {
-            title: "Autumn Sunshine Bouquet",
+            title: "Autumn Sunshine Bouquet"
 			image1: "/images/flowers_1/Alluring Elegance Bouquet_1.jpg",
             image2: "/images/flowers_1/Alluring Elegance Bouquet_2.jpg",
             image3: "/images/flowers//Autumn Sunshine Bouquet_2.jpg.",
