@@ -3785,15 +3785,11 @@ mark {
 }
 
 .single-product-main-area .nav-tabs {
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
 }
 
 @media (max-width: 479px) {
   .single-product-main-area .nav-tabs {
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
 }
@@ -3860,18 +3856,11 @@ mark {
 }
 
 .single-product-main-area .pro_review {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
 }
 
 @media (max-width: 479px) {
   .single-product-main-area .pro_review {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
             flex-direction: column;
   }
 }
@@ -3905,9 +3894,7 @@ mark {
   left: -6px;
   position: absolute;
   top: 10px;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   width: 10px;
 }
 
@@ -3994,14 +3981,7 @@ mark {
 
 @media (max-width: 479px) {
   .product-summery .quantity-with_btn {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: baseline;
-    -webkit-align-items: baseline;
-        -ms-flex-align: baseline;
             align-items: baseline;
   }
 }
