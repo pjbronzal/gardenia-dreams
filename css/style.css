@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,300;1,400;1,600;1,700&amp;display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital,wght@1,600&display=swap');
 body {
   line-height: 1.6;
   font-weight: 400;
@@ -5620,6 +5621,7 @@ mark {
   font-size: 14px;
   display: inline-block;
   margin-bottom: 15px;
+
 }
 
 .intro11-slider .intro11-content .title-slider.black-slider-title {
@@ -5905,12 +5907,12 @@ mark {
 }
 
 .slide-1 {
-  background-image: url("../images/slider/1-1.jpg");
+  background-image: url("/images/slider/1-1.png");
   background-color: rgba(215, 177, 190, 0.9);
 }
 
 .slide-2 {
-  background-image: url("../images/slider/1-2.jpg");
+  background-image: url("/images/slider/1-2.png");
   background-color: rgba(215, 177, 190, 0.9);
 }
 
