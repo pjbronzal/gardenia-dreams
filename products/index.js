@@ -6,115 +6,115 @@ const products = {
   menulist: [
     {
       id: 1,
-      productName: "Standard Heather",
-      category: "Flowers",
-      price: 1299,
-      image: "../img/flowers/standard_heather.webp",
+      productName: "Sweet & Pretty",
+      category: "flowers, bouquet, best selling",
+      price: 3000,
+      image: "../img/flowers/best-selling/sweet-pretty.webp",
     },
     {
       id: 2,
-      productName: "Deluxe Heather",
-      category: "Flowers",
-      price: 1399,
-      image: "../img/flowers/deluxe_heather.webp",
+      productName: "Marmalade Skies",
+      category: "flowers, bouquet, best selling",
+      price: 2800,
+      image: "../img/flowers/best-selling/marmalade-skies.webp",
     },
     {
       id: 3,
-      productName: "Beautiful You",
-      category: "Flowers",
-      price: 1399,
-      image: "../img/flowers/beautiful_you.webp",
+      productName: "Fiesta",
+      category: "flowers, bouquet, best selling",
+      price: 3400,
+      image: "../img/flowers/best-selling/fiesta.webp",
     },
     {
       id: 4,
-      productName: "Be In Love",
-      category: "Flowers",
-      price: 1199,
-      image: "../img/flowers/be_in_love.webp",
+      productName: "Fall Delight",
+      category: "flowers, bouquet, best selling",
+      price: 2500,
+      image: "../img/flowers/best-selling/fall-delight.webp",
     },
     {
       id: 5,
-      productName: "Beauty And The Beast",
-      category: "Flowers",
-      price: 1299,
-      image: "../img/flowers/pres_beauty-and-the-beast.webp",
+      productName: "Best Day",
+      category: "flowers, bouquet, best selling",
+      price: 3400,
+      image: "../img/flowers/best-selling/best-day.webp",
     },
     {
       id: 6,
-      productName: "Frozen In Time",
-      category: "Flowers",
-      price: 1499,
-      image: "../img/flowers/pres_frozen-in-time.webp",
+      productName: "Pumpkin Dream",
+      category: "flowers, bouquet, best selling",
+      price: 3600,
+      image: "../img/flowers/best-selling/pumpkin-dream.webp",
     },
     {
       id: 7,
-      productName: "Luminous Belle Rose",
-      category: "Flowers",
-      price: 1299,
-      image: "../img/flowers/pres_luminous-belle-rose.webp",
+      productName: "Clear Skies",
+      category: "flowers, bouquet, best selling",
+      price: 3900,
+      image: "../img/flowers/best-selling/clear-skies.webp",
     },
     {
       id: 8,
-      productName: "Violet Enchantment",
-      category: "Flowers",
-      price: 1299,
-      image: "../img/flowers/pres_violet-enchantment.webp",
+      productName: "Pop Of Whimsy",
+      category: "flowers, bouquet, best selling",
+      price: 4000,
+      image: "../img/flowers/best-selling/pop-of-whimsy.webp",
     },
     {
       id: 9,
-      productName: "Aglaonema",
-      category: "Plants",
-      price: 799,
-      image: "../img/plants/aglaonema.jpg",
+      productName: "Truly Stunning",
+      category: "flowers, bouquet, best selling",
+      price: 4000,
+      image: "../img/flowers/best-selling/truly-stunning.webp",
     },
     {
       id: 10,
-      productName: "Anthurium Laceleaf",
-      category: "Plants",
-      price: 1099,
-      image: "../img/plants/anthurium-laceleaf.webp",
+      productName: "Long Stem Red Rose",
+      category: "flowers, bouquet, best selling",
+      price: 4200,
+      image: "../img/flowers/best-selling/long-stem-red-rose.webp",
     },
     {
       id: 11,
-      productName: "Calathea Triostar",
-      category: "Plants",
-      price: 599,
-      image: "../img/plants/calathea-triostar.jpg",
+      productName: "Prairie Sunries",
+      category: "flowers, bouquet, best selling",
+      price: 3300,
+      image: "../img/flowers/best-selling/prairie-sunrise.webp",
     },
     {
       id: 12,
-      productName: "Silver King",
-      category: "Plants",
-      price: 599,
-      image: "../img/plants/silver-king.png",
+      productName: "Blush Crush",
+      category: "flowers, bouquet, best selling",
+      price: 3100,
+      image: "../img/flowers/best-selling/blush-crush.webp",
     },
     {
       id: 13,
-      productName: "Echeveria Cat",
-      category: "Plants",
-      price: 799,
-      image: "../img/plants/pot-echeveria-cat.webp",
+      productName: "Birthday Brights",
+      category: "flowers, bouquet, best selling",
+      price: 3600,
+      image: "../img/flowers/best-selling/birthday-brights.webp",
     },
     {
       id: 14,
-      productName: "Echeveria Corgi",
-      category: "Plants",
-      price: 999,
-      image: "../img/plants/pot-echeveria-corgi.jpg",
+      productName: "Autumn Orchard",
+      category: "flowers, bouquet, best selling",
+      price: 4400,
+      image: "../img/flowers/best-selling/autumn-orchard.webp",
     },
     {
       id: 15,
-      productName: "Echeveria Elephant",
-      category: "Plants",
-      price: 799,
-      image: "../img/plants/pot-echeveria-elephant.webp",
+      productName: "Classic Ivory",
+      category: "flowers, bouquet, best selling",
+      price: 2500,
+      image: "../img/flowers/best-selling/classic-ivory.jpg",
     },
     {
       id: 16,
-      productName: "Echeveria Whale",
-      category: "Plants",
-      price: 799,
-      image: "../img/plants/pot-echeveria-whale.jpg",
+      productName: "Beyond Blue",
+      category: "flowers, bouquet, best selling",
+      price: 3100,
+      image: "../img/flowers/best-selling/beyond-blue.webp",
     },
   ],
   orderedlist: [],
@@ -125,12 +125,12 @@ const products = {
       menulist += `
       
         <div class="col-md-3 col-12">
-          <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+          <div class="card mb-3 position-relative">
               <p id="ids${data.id}" hidden>${data.id}</p>
               <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
               <div class="card-body">
-                  <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+                  <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
                   <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
                   
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
@@ -268,7 +268,7 @@ function updateProductList(filteredProducts) {
           <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
           <div class="card-body">
-              <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+              <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
               <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
               
               <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
@@ -289,8 +289,8 @@ function updateProductList(filteredProducts) {
 
 // FILTER BY CATEGORY **************************************************************************
 function filterProductsByCategory(category) {
-  const filteredProducts = products.menulist.filter(
-    (product) => product.category.toLowerCase() === category.toLowerCase()
+  const filteredProducts = products.menulist.filter((product) =>
+    product.category.toLowerCase().includes(category.toLowerCase())
   );
 
   updateProductList(filteredProducts);
