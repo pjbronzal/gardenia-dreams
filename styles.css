@@ -91,6 +91,11 @@ header {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.accordion-button,
+#menu-list .card-title {
+  font-weight: 600;
+}
+
 .accordion-item {
   border: none;
 }

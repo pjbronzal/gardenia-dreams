@@ -125,12 +125,12 @@ const products = {
       menulist += `
       
         <div class="col-md-3 col-12">
-          <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+          <div class="card mb-3 position-relative">
               <p id="ids${data.id}" hidden>${data.id}</p>
               <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
               <div class="card-body">
-                  <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+                  <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
                   <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
                   
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
@@ -268,7 +268,7 @@ function updateProductList(filteredProducts) {
           <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
           <div class="card-body">
-              <p class="card-title fw-bold text-center" id="menu${data.id}">${data.productName}</p><hr>
+              <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
               <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
               
               <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
