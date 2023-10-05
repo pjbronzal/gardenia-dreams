@@ -74,8 +74,6 @@
                         <div class="input-group">
                             <input id="search-input" type="text" class="form-control" placeholder="Search products..."
                                 aria-label="Search" aria-describedby="search-button">
-
-
                             <div class="input-group-append">
                                 <button class="btn" type="button" id="search-button">Search</button>
                             </div>
@@ -86,23 +84,26 @@
 
                 <div class="row mt-4">
                     <div class="col-sm-3">
-                        <h5 class="fw-bold">Product Categories</h5>
+                        <h5 class="fw-bold">Menu Categories</h5>
                         <div class="accordion accordion-flush" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed fw-bold" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
                                         aria-expanded="false" aria-controls="flush-collapseOne"
-                                        onclick="filterProductsByCategory('Flowers')">
+                                        onclick="filterProductsByCategory('flowers')">
                                         Flowers
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                <div id="flush-collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body py-0">
                                         <ul class="list-unstyled">
+                                            <li class="ps-4 mb-3">Featured Flowers</li>
+                                            <li class="ps-4 mb-3">Best Selling Flowers</li>
+                                            <li class="ps-4 mb-3">New Arrivals</li>
                                             <li class="ps-4 mb-3">Bouquets</li>
-                                            <li class="ps-4 mb-3">Preserved Flowers</li>
+                                            <li class="ps-4">Flower Sets</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -116,12 +117,15 @@
                                         Plants
                                     </button>
                                 </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                <div id="flush-collapseTwo" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body py-0">
                                         <ul class="list-unstyled">
-                                            <li class="ps-4 mb-3">Potted Plants</li>
-                                            <li class="ps-4 mb-3">Echeveria Plants</li>
+                                            <li class="ps-4 mb-3">Featured Plants</li>
+                                            <li class="ps-4 mb-3">Flowering Plants</li>
+                                            <li class="ps-4 mb-3">House Plants</li>
+                                            <li class="ps-4 mb-3">Outdoor Plants</li>
+                                            <li class="ps-4">Pet Friendly Plants</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -131,13 +135,20 @@
                                     <button class="accordion-button collapsed fw-bold" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                         aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Stuff Toys
+                                        Gifts
                                     </button>
                                 </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                <div id="flush-collapseThree" class="accordion-collapse collapse show"
                                     aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                    <div class="accordion-body">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Excepturi, veritatis.</div>
+                                    <div class="accordion-body py-0">
+                                        <ul class="list-unstyled">
+                                            <li class="ps-4 mb-3">Featured Gifts</li>
+                                            <li class="ps-4 mb-3">Best-Selling Plants</li>
+                                            <li class="ps-4 mb-3">Gift & Flower Bundles</li>
+                                            <li class="ps-4 mb-3">Food Gifts</li>
+                                            <li class="ps-4">Keepsakes</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
