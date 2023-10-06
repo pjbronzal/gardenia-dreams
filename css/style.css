@@ -5889,17 +5889,17 @@ mark {
 /*-- Slider Animation From Hero --*/
 
 .slide-1 {
-  background-image: url("");
+  background-image: url("/images/slider/jisooo.png");
   background-color: rgba(226, 128, 16, 0.87);
 }
 
 .slide-2 {
-  background-image: url("");
+  background-image: url("/images/slider/2.png");
   background-color: rgba(210, 91, 240, 0.87);
 }
 
 .slide-3 {
-  background-image: url("");
+  background-image: url("/images/slider/3.png");
   background-color: rgba(226, 128, 16, 0.87);
 }
 
