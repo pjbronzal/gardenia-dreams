@@ -5886,6 +5886,8 @@ mark {
   }
 }
 
+/*-- Slider Animation From Hero --*/
+
 .slide-1 {
   background-image: url("");
   background-color: rgba(226, 128, 16, 0.87);
@@ -5893,7 +5895,7 @@ mark {
 
 .slide-2 {
   background-image: url("");
-  background-color: rgba(226, 128, 16, 0.87);
+  background-color: rgba(210, 91, 240, 0.87);
 }
 
 .slide-3 {
@@ -6191,6 +6193,25 @@ mark {
   -o-transition: .3s;
   transition: .3s;
 }
+
+.gardenia-button.secondary-btn:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #4b0082;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.gardenia-button.secondary-btn:hover:after {
+  width: 100%;
+}
+
 
 /*----------------------------------------*/
 /*    Shop Category

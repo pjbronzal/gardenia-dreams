@@ -526,16 +526,16 @@ const products = [
   {
     title: "Aurora Roses",
     image1: "/images/Bouquets/Aurora roses.jpg",
-    image2: "/images/Bouquets/Aurora roses1.jpg",
-    image3: "/images/Bouquets/Aurora roses3.jpg",
+    image2: "/images/Bouquets/Aurora roses3.jpg",
+    image3: "",
     price: 599,
     oldPrice: 499,
   },
   {
     title: "Bahamas Flamingo Pink Rose",
     image1: "/images/Bouquets/Bahamas Flamingo Pink Rose.jpg",
-    image2: "/images/Bouquets/Bahamas Flamingo Pink Rose2.jpg",
-    image3: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
+    image2: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
+    image3: "",
     price: 599,
     oldPrice: 499,
   },
@@ -576,6 +576,38 @@ const products = [
     title: "Love you for all seasons",
     image1: "/images/Bouquets/Love you for all seasons.jpg",
     image2: "/images/Bouquets/Love you for all seasons1.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Love you with all my heart",
+    image1: "/images/Bouquets/love you with all my heart.jpg",
+    image2: "/images/Bouquets/love you with all my heart1.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "The Original Intention is the same",
+    image1: "/images/Bouquets/The original intention is the same.jpg",
+    image2: "/images/Bouquets/The original intention is the same1.jpg",
+    image3: "",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Love you with all my heart",
+    image1: "/images/Bouquets/love you with all my heart.jpg",
+    image2: "/images/Bouquets/love you with all my heart1.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Love you with all my heart",
+    image1: "/images/Bouquets/love you with all my heart.jpg",
+    image2: "/images/Bouquets/love you with all my heart1.jpg",
     image3: "/images/Bouquets/Love you for all seasons2.jpg",
     price: 599,
     oldPrice: 499,
@@ -653,3 +685,5 @@ function renderProducts() {
 
 // Call the render function on page load or wherever appropriate
 renderProducts();
+
+
