@@ -521,7 +521,10 @@
   });
 })(jQuery);
 
-//*Precious tulong!!!//
+
+/*----------------------------------------*/
+  /*-----  Sale Product Card from Landing Page
+	---------------------------------*/
 const products = [
   {
     title: "Aurora Roses",
@@ -542,24 +545,16 @@ const products = [
   {
     title: "Cappucino",
     image1: "/images/Bouquets/Cappuccino rose.jpg",
-    image2: "/images/Bouquets/Cappuccino rose1.jpg",
+    image2: "/images/Bouquets/Cappuccino rose3.jpg",
     image3: "/images/Bouquets/Cappuccino rose2.jpg",
     price: 599,
     oldPrice: 499,
   },
-  {
-    title: "Bahamas Flamingo Pink Rose",
-    image1: "/images/Bouquets/Deep love.jpg",
-    image2: "/images/Bouquets/Deep love1.jpg",
-    image3: "/images/Bouquets/Deep love3.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-
+  
   {
     title: "Golden Warm Sun",
     image1: "/images/Bouquets/Golden warm sun.jpg",
-    image2: "/images/Bouquets/Golden warm sun1.jpg",
+    image2: "/images/Bouquets/Golden warm sun3.jpg",
     image3: "/images/Bouquets/Golden warm sun2.jpg",
     price: 599,
     oldPrice: 499,
@@ -567,7 +562,7 @@ const products = [
   {
     title: "Love in the Heart",
     image1: "/images/Bouquets/Love in the heart.jpg",
-    image2: "/images/Bouquets/Love in the heart2.jpg",
+    image2: "/images/Bouquets/Love in the heart4.jpg",
     image3: "/images/Bouquets/Love in the heart4.jpg",
     price: 599,
     oldPrice: 499,
@@ -575,7 +570,7 @@ const products = [
   {
     title: "Love you for all seasons",
     image1: "/images/Bouquets/Love you for all seasons.jpg",
-    image2: "/images/Bouquets/Love you for all seasons1.jpg",
+    image2: "/images/Bouquets/Love you for all seasons3.jpg",
     image3: "/images/Bouquets/Love you for all seasons2.jpg",
     price: 599,
     oldPrice: 499,
@@ -583,7 +578,7 @@ const products = [
   {
     title: "Love you with all my heart",
     image1: "/images/Bouquets/love you with all my heart.jpg",
-    image2: "/images/Bouquets/love you with all my heart1.jpg",
+    image2: "/images/Bouquets/love you with all my heart2.jpg",
     image3: "/images/Bouquets/Love you for all seasons2.jpg",
     price: 599,
     oldPrice: 499,
@@ -591,14 +586,22 @@ const products = [
   {
     title: "The Original Intention is the same",
     image1: "/images/Bouquets/The original intention is the same.jpg",
-    image2: "/images/Bouquets/The original intention is the same1.jpg",
+    image2: "/images/Bouquets/The original intention is the same12.jpg",
     image3: "",
     price: 599,
     oldPrice: 499,
   },
   {
-    title: "Love you with all my heart",
-    image1: "/images/Bouquets/love you with all my heart.jpg",
+    title: "Blooming",
+    image1: "/images/Bouquets/Blooming.jpg",
+    image2: "/images/Bouquets/Blooming2.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Concerning You",
+    image1: "/images/Bouquets/Concerning You.jpg",
     image2: "/images/Bouquets/love you with all my heart1.jpg",
     image3: "/images/Bouquets/Love you for all seasons2.jpg",
     price: 599,
@@ -613,10 +616,10 @@ const products = [
     oldPrice: 499,
   },
   {
-    title: "Love you with all my heart",
-    image1: "/images/Bouquets/love you with all my heart.jpg",
-    image2: "/images/Bouquets/love you with all my heart1.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    title: "Bahamas Flamingo Pink Rose",
+    image1: "/images/Bouquets/Deep love.jpg",
+    image2: "/images/Bouquets/Deep love3.jpg",
+    image3: "/images/Bouquets/Deep love3.jpg",
     price: 599,
     oldPrice: 499,
   },
