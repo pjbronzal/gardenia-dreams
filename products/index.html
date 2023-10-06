@@ -90,19 +90,29 @@
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                        aria-controls="flush-collapseOne" onclick="filterProductsByCategory('flowers')">
+                                        aria-controls="flush-collapseOne">
                                         Flowers
                                     </button>
                                 </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                                <div id="flush-collapseOne" class="accordion-collapse collapse show fade-transition"
                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body py-0">
                                         <ul class="list-unstyled">
-                                            <li class="ps-4 mb-3">Featured Flowers</li>
-                                            <li class="ps-4 mb-3">Best Selling Flowers</li>
-                                            <li class="ps-4 mb-3">New Arrivals</li>
-                                            <li class="ps-4 mb-3">Bouquets</li>
-                                            <li class="ps-4">Flower Sets</li>
+                                            <button onclick="filterProductsByCategory('flowers')">
+                                                <li class="ps-4 mb-3">All Flowers</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('best selling flowers')">
+                                                <li class="ps-4 mb-3">Best Selling Flowers</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('new arrivals')">
+                                                <li class="ps-4 mb-3">New Arrivals</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('luxury')">
+                                                <li class="ps-4 mb-3">Luxury Flowers</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('set')">
+                                                <li class="ps-4">Flower Sets</li>
+                                            </button>
                                         </ul>
                                     </div>
                                 </div>
@@ -111,7 +121,7 @@
                                 <h2 class="accordion-header" id="flush-headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                        aria-controls="flush-collapseTwo" onclick="filterProductsByCategory('Plants')">
+                                        aria-controls="flush-collapseTwo">
                                         Plants
                                     </button>
                                 </h2>
@@ -119,11 +129,21 @@
                                     aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body py-0">
                                         <ul class="list-unstyled">
-                                            <li class="ps-4 mb-3">Featured Plants</li>
-                                            <li class="ps-4 mb-3">Flowering Plants</li>
-                                            <li class="ps-4 mb-3">House Plants</li>
-                                            <li class="ps-4 mb-3">Outdoor Plants</li>
-                                            <li class="ps-4">Pet Friendly Plants</li>
+                                            <button onclick="filterProductsByCategory('plants')">
+                                                <li class="ps-4 mb-3">All Plants</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('best selling plants')">
+                                                <li class="ps-4 mb-3">Best Selling Plants</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('indoor plants')">
+                                                <li class="ps-4 mb-3">Indoor Plants</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('pet friendly plants')">
+                                                <li class="ps-4 mb-3">Pet Friendly Plants</li>
+                                            </button>
+                                            <button onclick="filterProductsByCategory('bonsai')">
+                                                <li class="ps-4">Bonsai & Bamboo Plants</li>
+                                            </button>
                                         </ul>
                                     </div>
                                 </div>

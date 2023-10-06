@@ -96,6 +96,14 @@ header {
   font-weight: 600;
 }
 
+.accordion-body button {
+  border: 0;
+  /* padding: 0; */
+  width: 100%;
+  text-align: start;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .accordion-item {
   border: none;
 }
