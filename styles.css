@@ -125,12 +125,13 @@ header {
 
 #wish-list .remove {
   position: absolute;
-  font-size: 12px;
+  font-size: 19px;
   top: 0;
   right: 0;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0);
-  color: red;
+  /* color: red; */
+  opacity: 0.5;
   border: none;
   cursor: pointer;
 }

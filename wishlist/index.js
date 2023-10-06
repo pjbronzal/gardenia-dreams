@@ -2,12 +2,17 @@ function displayWishlistItems() {
   const wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
   const wishlistDiv = document.getElementById("wishlist-div");
 
+  if (wishlistItems.length === 0) {
+    wishlistDiv.innerHTML = "<p>No items added yet.</p>";
+    return;
+  }
+
   const wishlistHTML = wishlistItems
-    .map((item) => {
+    .map((item, index) => {
       return `
       <div class="col-3">
         <div class="card mb-3 position-relative">
-          <button class="remove pe-2"><i class="fa-solid fa-x"></i></button>
+          <button class="remove pe-2" onclick="deleteThisOrder(${index})"><i class="fa-solid fa-circle-xmark"></i></button>
           <p id="ids${item.id}" hidden>${item.id}</p>
           <img id="image${item.id}" src="${item.image}" class="img-fluid pt-2 px-2">
     
@@ -15,7 +20,6 @@ function displayWishlistItems() {
               <p class="card-title fw-bold" id="menu${item.id}">${item.productName}</p>
               <p class="card-text" id="price${item.id}">₱ ${item.price}.00</p>
               <button class="btn btn-sm" onclick="addToCart(${item.id})"><i class="fa-solid fa-cart-shopping me-2"></i>Add To Cart</button>
-              
           </div>
         </div>
       </div>
@@ -26,28 +30,21 @@ function displayWishlistItems() {
   wishlistDiv.innerHTML = wishlistHTML;
 }
 
-{
-  /* <button class="btn btn-sm deleteWishItem" onclick="deleteWishlistItem(${item.id})"><i class="fa-solid fa-trash"></i>Remove</button> */
-}
+function deleteThisOrder(index) {
+  let wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
 
-function deleteWishlistItem(itemId) {
-  // Retrieve the current wishlist from local storage
-  const wishlistItems = JSON.parse(localStorage.getItem("wishlist")) || [];
+  if (index !== -1) {
+    wishlistItems.splice(index, 1);
 
-  // Find the index of the item with the given itemId in the wishlistItems array
-  const itemIndex = wishlistItems.findIndex((item) => item.id === itemId);
+    if (wishlistItems.length === 0) {
+      localStorage.removeItem("wishlist");
+    } else {
+      localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
+    }
 
-  // Check if the item was found in the wishlist
-  if (itemIndex !== -1) {
-    // Remove the item from the wishlistItems array
-    wishlistItems.splice(itemIndex, 1);
-
-    // Update the localStorage with the modified wishlist
-    localStorage.setItem("wishlist", JSON.stringify(wishlistItems));
-
-    // Refresh the display of wishlist items
     displayWishlistItems();
   }
+  alert("Wishlist item deleted.");
 }
 
 displayWishlistItems();
