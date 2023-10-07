@@ -643,13 +643,6 @@ const products = {
     let menu = document.getElementById("menu-list");
     let menulist = "";
     this.menulist.forEach(function (data) {
-      const formattedPrice = data.price.toLocaleString("en-PH", {
-        style: "currency",
-        currency: "PHP",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      });
-
       menulist += `
         <div class="col-md-3 col-12">
           <div class="card mb-3 position-relative">
@@ -658,7 +651,7 @@ const products = {
     
               <div class="card-body">
                   <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
-                  <p class="card-text text-center" id="price${data.id}">${formattedPrice}</p>
+                  <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
     
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
                       <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
@@ -752,7 +745,7 @@ function addToCart(id) {
     price: new_price,
     quantity: 1,
     item: "cart",
-    totalPrice: new_price,
+    totalPrice: new_price, // This line keeps the price without formatting
     image: new_image,
   });
 
@@ -763,6 +756,7 @@ function addToCart(id) {
   // document.querySelector(`button[data-id="${id}"]`).disabled = true;
   // updateTotal();
 }
+
 
 // SEARCH PRODUCTS *********************************************************************
 // Creating Filtered Container

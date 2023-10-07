@@ -1,3 +1,7 @@
+function formatAccounting(amount) {
+  return "₱ " + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function displayCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   const cartDiv = document.getElementById("cart-div");
@@ -21,7 +25,7 @@ function displayCartItems() {
 
             <div class="col-sm-5 cartItem">
               <p class="card-title pt-2" id="ids${item.id}">${item.productName}</p>
-              <p class="card-text" id="price${item.id}">Price: ₱ ${item.price}.00</p>
+              <p class="card-text" id="price${item.id}">Price: ${formatAccounting(item.price)}</p>
 
               <div class="wrapper qty">
                 <span class="minus" onclick="minusQty(${item.id})">-</span>
@@ -31,8 +35,8 @@ function displayCartItems() {
             </div>
 
             <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end">
-              <p class="card-title pt-2" id="subtotal${item.id}">₱ ${subtotal.toFixed(2)}</p>
               <button class="btn btn-sm mt-2" onclick="deleteThisItem(${index})"><i class="fa-solid fa-trash"></i></button>
+              <p class="card-title pt-2" id="subtotal${item.id}">${formatAccounting(subtotal)}</p>
             </div>
           </div>
         </div>
@@ -67,7 +71,7 @@ function updateSubtotal(itemId, quantity) {
   const price = parseFloat(priceElement.innerText.replace(/[^0-9.]/g, ''));
   const subtotal = price * quantity;
   const subtotalElement = document.getElementById(`subtotal${itemId}`);
-  subtotalElement.innerText = `₱ ${subtotal.toFixed(2)}`;
+  subtotalElement.innerText = formatAccounting(subtotal);
 }
 
 function deleteThisItem(index) {
