@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="/styles.css">
     <title>Cart</title>
 </head>
 
@@ -56,22 +56,13 @@
         <div class="container">
             <h3 class="text-center fw-bold">My Cart</h3>
             <hr>
-            <div id="cart-div">
-                <!-- <div class="col-12">
-                    <div class="card mb-3 position-relative">
-                    <div class="row">
-                      <p id="ids${item.id}" hidden>${item.id}</p>
-                      <img id="image${item.id}" src="${item.image}" class="img-fluid pt-2 px-2">
-                
-                      <div class="card-body text-center">
-                          <p class="card-title fw-bold" id="menu${item.id}">${item.productName}</p>
-                          <p class="card-text" id="price${item.id}">₱ ${item.price}.00</p>
-                          <button class="btn btn-sm" onclick="addToCart(${item.id})"><i class="fa-solid fa-cart-shopping me-2"></i>Add To Cart</button>
-                          <button class="btn btn-sm deleteWishItem" onclick=""><i class="fa-solid fa-trash"></i></button>
-                      </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div id="cart-div"></div>
                     </div>
-                  </div>
-                  </div> -->
+                    <div class="col-sm-6"></div>
+                </div>
             </div>
         </div>
     </section>

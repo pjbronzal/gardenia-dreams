@@ -6,11 +6,6 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-/* header,
-#search-button {
-  background-color: #fde3be;
-} */
-
 header {
   background-color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
@@ -113,6 +108,11 @@ header {
   font-size: 13px;
 }
 
+#cart-div .card-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+
 #menu-list .card-text,
 #wish-list .card-text,
 #wish-list .btn {
@@ -130,26 +130,15 @@ header {
   right: 0;
   padding: 5px;
   background-color: rgba(0, 0, 0, 0);
-  /* color: red; */
   opacity: 0.5;
   border: none;
   cursor: pointer;
 }
 
-/* #wish-list .deleteWishItem {
-  border: 1px solid red;
-  color: red;
-} */
-
 #wish-list .btn:hover {
   background-color: black;
   color: white;
 }
-
-/* #wish-list .deleteWishItem:hover {
-  background-color: red;
-  color: white;
-} */
 
 span {
   background-color: red;
@@ -157,6 +146,17 @@ span {
   padding: 2px 5px;
   font-size: 11px;
   border-radius: 4px;
+}
+
+.qty span{
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #dedede;
+  color: black;
+  font-size: 14px;
+}
+
+.qty span.num{
+  border: 0;
 }
 
 .menu-footer p {
