@@ -43,6 +43,7 @@ function displayCartItems() {
   cartDiv.innerHTML = cartHTML;
 }
 
+
 function addQty(itemId) {
   const quantityElement = document.getElementById(`quantity${itemId}`);
   let currentQuantity = parseInt(quantityElement.innerText);
@@ -60,3 +61,4 @@ function minusQty(itemId) {
 }
 
 displayCartItems();
+

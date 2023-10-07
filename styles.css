@@ -113,6 +113,11 @@ header {
   font-weight: 600;
 }
 
+#cart-div .card {
+  border: 1px solid #dedede;
+  box-shadow: none;
+}
+
 #menu-list .card-text,
 #wish-list .card-text,
 #wish-list .btn {
