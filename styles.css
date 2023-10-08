@@ -62,6 +62,10 @@ header {
   margin-top: 130px;
 }
 
+#wish-list select {
+  border-radius: 0;
+}
+
 .product-category {
   height: 60px;
   width: 100%;

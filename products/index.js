@@ -701,7 +701,7 @@ function addToWishlist(id) {
   const itemId = id.toString();
 
   if (isItemAlreadyInStorage(wishlistItem, itemId)) {
-    alert("Item is already in the Wishlist.");
+    alert("You already added this item.");
     return;
   }
 
@@ -743,7 +743,7 @@ function addToCart(id) {
   const itemId = id.toString();
 
   if (isItemAlreadyInStorage(cartItem, itemId)) {
-    alert("Item is already in the Cart.");
+    alert("You already added this item.");
     return;
   }
   

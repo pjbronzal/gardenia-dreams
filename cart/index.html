@@ -57,7 +57,46 @@
             <h3 class="text-center fw-bold">My Cart</h3>
             <hr>
             <div class="container">
-                <div id="cart-div"></div>
+                <!-- <div id="cart-div"></div> -->
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div id="cart-div"></div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="card">
+                            <h5 class="fw-bold text-center pt-3">Payment Method</h5>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <label for="">Choose your payment method:</label> -->
+                                <select class="form-select" id="paymentMethod" name="paymentMethod">
+                                    <option selected disabled value="0">Choose</option>
+                                    <option value="1">Cash on Delivery</option>
+                                    <option value="2">Payment Center/E-Wallet</option>
+                                    <option disabled value="3">Linked Bank/Account</option>
+                                    <option disabled value="4">Credit/Debit Card</option>
+                                    <option disabled value="5">Online Banking</option>
+                                </select>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="mt-3">Subtotal: </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mt-3 text-end" id="subTotal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p>Delivery Fee: </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-end">₱ 38.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -69,30 +108,12 @@
 
     <div class="sticky-footer d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="paymentMethodDropdown"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Choose Payment Method
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="paymentMethodDropdown">
-                    <li><a class="dropdown-item" href="#" data-payment-method="Cash on Delivery">Cash on Delivery</a>
-                    </li>
-                    <li><a class="dropdown-item" href="#" data-payment-method="Payment Center/E-Wallet">Payment
-                            Center/E-Wallet</a></li>
-                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Linked Bank/Account">Linked
-                            Bank/Account</a></li>
-                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Credit/Debit Card">Credit/Debit
-                            Card</a></li>
-                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Online Banking">Online
-                            Banking</a></li>
-                </ul>
-            </div>
-            <p id="totalItems" class="mb-0"></p>
+            <p id="totalItems" class="fw-bold mb-0"></p>
         </div>
 
         <div class="d-flex align-items-center">
-            <p class="fw-bold mb-0" id="totalHere"></p>
-            <button class="btn btn-primary">Checkout</button>
+            <p class="fw-bold mb-0" id="overAll"></p>
+            <button class="btn btn-primary">Place Order</button>
         </div>
     </div>
 
@@ -101,6 +122,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+
     <script src="../products/index.js"></script>
     <script src="index.js"></script>
     <script>
@@ -117,15 +139,6 @@
             const count = wishlistItems.length;
             document.getElementById("cartCount").textContent = count;
         }
-
-        // PAYMENT
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        dropdownMenu.addEventListener('click', (e) => {
-            if (e.target && e.target.matches('a.dropdown-item')) {
-                const selectedPaymentMethod = e.target.getAttribute('data-payment-method');
-                document.getElementById('paymentMethodDropdown').textContent = selectedPaymentMethod;
-            }
-        });
     </script>
 </body>
 

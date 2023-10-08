@@ -61,12 +61,19 @@ function displayTotal() {
     itemCount += item.quantity;
   });
 
-  const totalElement = document.getElementById("totalHere");
-  totalElement.innerText = `Total Amount: ${formatAccounting(total)}`;
+  // OVERALL TOTAL AMOUNT
+  const overallTotal = total + 38;
+  
+
+  const totalElement = document.getElementById("subTotal");
+  totalElement.innerText = `${formatAccounting(total)}`;
 
   // ITEM COUNT
   const totalItemsElement = document.getElementById("totalItems");
-  totalItemsElement.innerText = `Total Items: ${itemCount}`;
+  totalItemsElement.innerText = `Item(s): ${itemCount}`;
+
+  const overallTotalElement = document.getElementById("overAll");
+  overallTotalElement.innerText = `Total Amount: ${formatAccounting(overallTotal)}`;
 }
 
 
