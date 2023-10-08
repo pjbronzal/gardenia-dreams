@@ -57,12 +57,11 @@
             <h3 class="text-center fw-bold">My Cart</h3>
             <hr>
             <div class="container">
-                <!-- <div id="cart-div"></div> -->
                 <div class="row">
                     <div class="col-sm-7">
                         <div id="cart-div"></div>
                     </div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-5" id="payment-div">
                         <div class="card">
                             <h5 class="fw-bold text-center pt-3">Payment Method</h5>
                             <hr>
@@ -113,10 +112,31 @@
 
         <div class="d-flex align-items-center">
             <p class="fw-bold mb-0" id="overAll"></p>
-            <button class="btn btn-primary">Place Order</button>
+            <button class="btn" data-bs-toggle="modal" id="btnPlaceOrder" data-bs-target="#placeordermodal">Place
+                Order</button>
         </div>
     </div>
 
+
+    <!-- PLACE ORDER MODAL -->
+    <div class="modal fade" id="placeordermodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fw-bold fs-5" id="staticBackdropLabel">Place Order</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to place the order?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="placeOrderButton">Yes, place this order.</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -126,6 +146,29 @@
     <script src="../products/index.js"></script>
     <script src="index.js"></script>
     <script>
+        // HIDE ELEMENTS IF CART IS EMPTY
+        if (!localStorage.getItem("cart")) {
+            const paymentDiv = document.getElementById("payment-div");
+            const btnPlaceOrder = document.getElementById("btnPlaceOrder");
+            const totalItems = document.getElementById("totalItems");
+            const overAll = document.getElementById("overAll");
+
+            if (paymentDiv) {
+                paymentDiv.style.display = "none";
+            }
+            if (btnPlaceOrder) {
+                btnPlaceOrder.style.display = "none";
+            }
+            if (totalItems) {
+                totalItems.style.display = "none";
+            }
+            if (overAll) {
+                overAll.style.display = "none";
+            }
+        }
+
+
+
         // WISHLIST COUNT
         if (localStorage.getItem("wishlist")) {
             const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
@@ -139,6 +182,21 @@
             const count = wishlistItems.length;
             document.getElementById("cartCount").textContent = count;
         }
+
+
+        // PLACE ORDER
+        function deleteCartFromLocalStorage() {
+            if (localStorage.getItem("cart")) {
+                localStorage.removeItem("cart");
+            }
+        }
+
+        document.getElementById("placeOrderButton").addEventListener("click", function () {
+            deleteCartFromLocalStorage();
+            alert("Order successfully placed.");
+            window.location.href = window.location.href;
+        });
+
     </script>
 </body>
 
