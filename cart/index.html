@@ -57,20 +57,7 @@
             <h3 class="text-center fw-bold">My Cart</h3>
             <hr>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div id="cart-div"></div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card">
-                            <h5 class="text-center fw-bold p-2">Order Summary</h5>
-                            <div id="cart-summary">
-                                <p id="total">Total: ₱ 0.00</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div id="cart-div"></div>
             </div>
         </div>
     </section>
@@ -78,6 +65,27 @@
     <div class="container menu-footer text-center mt-5">
         <hr>
         <p>&copy; Gardenia Dreams 2023. All Rights Reserved.</p>
+    </div>
+
+    <div class="sticky-footer d-flex justify-content-between align-items-center">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="paymentMethodDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Choose Payment Method
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="paymentMethodDropdown">
+                <li><a class="dropdown-item" href="#" data-payment-method="Cash on Delivery">Cash on Delivery</a></li>
+                <li><a class="dropdown-item" href="#" data-payment-method="Payment Center/E-Wallet">Payment
+                        Center/E-Wallet</a></li>
+                <li><a class="dropdown-item" href="#" data-payment-method="Linked Bank/Account">Linked Bank/Account</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-payment-method="Credit/Debit Card">Credit/Debit Card</a></li>
+                <li><a class="dropdown-item" href="#" data-payment-method="Online Banking">Online Banking</a></li>
+            </ul>
+        </div>
+
+        <p class="fw-bold" id="totalHere"></p>
+        <button class="btn btn-primary">Place Order</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -99,6 +107,15 @@
             const count = wishlistItems.length;
             document.getElementById("cartCount").textContent = count;
         }
+
+        // PAYMENT
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.addEventListener('click', (e) => {
+            if (e.target && e.target.matches('a.dropdown-item')) {
+                const selectedPaymentMethod = e.target.getAttribute('data-payment-method');
+                document.getElementById('paymentMethodDropdown').textContent = selectedPaymentMethod;
+            }
+        });
     </script>
 </body>
 

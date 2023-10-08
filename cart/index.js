@@ -34,7 +34,7 @@ function displayCartItems() {
               </div>
             </div>
 
-            <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end">
+            <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end deleteItem">
               <button class="btn btn-sm mt-2" onclick="deleteThisItem(${index})"><i class="fa-solid fa-trash"></i></button>
               <p class="card-title pt-2" id="subtotal${item.id}">${formatAccounting(subtotal)}</p>
             </div>
@@ -48,12 +48,27 @@ function displayCartItems() {
   cartDiv.innerHTML = cartHTML;
 }
 
+function displayTotal() {
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = 0;
+
+  cartItems.forEach((item) => {
+    const subtotalElement = document.getElementById(`subtotal${item.id}`);
+    const subtotal = parseFloat(subtotalElement.innerText.replace(/[^0-9.]/g, ''));
+    total += subtotal;
+  });
+
+  const totalElement = document.getElementById("totalHere");
+  totalElement.innerText = `Total: ${formatAccounting(total)}`;
+}
+
 function addQty(itemId) {
   const quantityElement = document.getElementById(`quantity${itemId}`);
   let currentQuantity = parseInt(quantityElement.innerText);
   currentQuantity++;
   quantityElement.innerText = currentQuantity;
   updateSubtotal(itemId, currentQuantity);
+  displayTotal();
 }
 
 function minusQty(itemId) {
@@ -64,6 +79,7 @@ function minusQty(itemId) {
     quantityElement.innerText = currentQuantity;
     updateSubtotal(itemId, currentQuantity);
   }
+  displayTotal();
 }
 
 function updateSubtotal(itemId, quantity) {
@@ -89,6 +105,8 @@ function deleteThisItem(index) {
     displayCartItems();
     alert("Item deleted successfully.");
   }
+  displayTotal();
 }
 
 displayCartItems();
+displayTotal();
