@@ -7,7 +7,7 @@ function displayCartItems() {
   const cartDiv = document.getElementById("cart-div");
 
   if (cartItems.length === 0) {
-    cartDiv.innerHTML = "<p>No items added yet.</p>";
+    cartDiv.innerHTML = "<p class='text-end mt-5'>No items added yet.</p>";
     return;
   }
 

@@ -17,7 +17,8 @@ header {
 #search-button,
 .accordion-button,
 .accordion-collapse ul li,
-.dropdown-menu.show {
+.dropdown-menu.show,
+.tab-content td  {
   font-size: 14px;
 }
 

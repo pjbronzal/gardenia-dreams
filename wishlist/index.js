@@ -3,7 +3,7 @@ function displayWishlistItems() {
   const wishlistDiv = document.getElementById("wishlist-div");
 
   if (wishlistItems.length === 0) {
-    wishlistDiv.innerHTML = "<p>No items added yet.</p>";
+    wishlistDiv.innerHTML = "<p class='text-center mt-5'>No items added yet.</p>";
     return;
   }
 
