@@ -51,16 +51,24 @@ function displayCartItems() {
 function displayTotal() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
   let total = 0;
-
+  let itemCount = 0;
+  
   cartItems.forEach((item) => {
     const subtotalElement = document.getElementById(`subtotal${item.id}`);
     const subtotal = parseFloat(subtotalElement.innerText.replace(/[^0-9.]/g, ''));
     total += subtotal;
+
+    itemCount += item.quantity;
   });
 
   const totalElement = document.getElementById("totalHere");
-  totalElement.innerText = `Total: ${formatAccounting(total)}`;
+  totalElement.innerText = `Total Amount: ${formatAccounting(total)}`;
+
+  // ITEM COUNT
+  const totalItemsElement = document.getElementById("totalItems");
+  totalItemsElement.innerText = `Total Items: ${itemCount}`;
 }
+
 
 function addQty(itemId) {
   const quantityElement = document.getElementById(`quantity${itemId}`);

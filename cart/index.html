@@ -68,25 +68,35 @@
     </div>
 
     <div class="sticky-footer d-flex justify-content-between align-items-center">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="paymentMethodDropdown"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Choose Payment Method
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="paymentMethodDropdown">
-                <li><a class="dropdown-item" href="#" data-payment-method="Cash on Delivery">Cash on Delivery</a></li>
-                <li><a class="dropdown-item" href="#" data-payment-method="Payment Center/E-Wallet">Payment
-                        Center/E-Wallet</a></li>
-                <li><a class="dropdown-item" href="#" data-payment-method="Linked Bank/Account">Linked Bank/Account</a>
-                </li>
-                <li><a class="dropdown-item" href="#" data-payment-method="Credit/Debit Card">Credit/Debit Card</a></li>
-                <li><a class="dropdown-item" href="#" data-payment-method="Online Banking">Online Banking</a></li>
-            </ul>
+        <div class="d-flex align-items-center">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="paymentMethodDropdown"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Choose Payment Method
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="paymentMethodDropdown">
+                    <li><a class="dropdown-item" href="#" data-payment-method="Cash on Delivery">Cash on Delivery</a>
+                    </li>
+                    <li><a class="dropdown-item" href="#" data-payment-method="Payment Center/E-Wallet">Payment
+                            Center/E-Wallet</a></li>
+                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Linked Bank/Account">Linked
+                            Bank/Account</a></li>
+                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Credit/Debit Card">Credit/Debit
+                            Card</a></li>
+                    <li><a class="dropdown-item disabled" href="#" data-payment-method="Online Banking">Online
+                            Banking</a></li>
+                </ul>
+            </div>
+            <p id="totalItems" class="mb-0"></p>
         </div>
 
-        <p class="fw-bold" id="totalHere"></p>
-        <button class="btn btn-primary">Place Order</button>
+        <div class="d-flex align-items-center">
+            <p class="fw-bold mb-0" id="totalHere"></p>
+            <button class="btn btn-primary">Checkout</button>
+        </div>
     </div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

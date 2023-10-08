@@ -690,8 +690,21 @@ orderedlist = localStorage.getItem(wishlistItem);
 
 products.showproducts();
 
+// ITEM CHECKER
+function isItemAlreadyInStorage(itemKey, itemId) {
+  const items = JSON.parse(localStorage.getItem(itemKey)) || [];
+  return items.some((item) => item.id === itemId);
+}
+
 // ADD TO WISHLIST *****************************************************************
 function addToWishlist(id) {
+  const itemId = id.toString();
+
+  if (isItemAlreadyInStorage(wishlistItem, itemId)) {
+    alert("Item is already in the Wishlist.");
+    return;
+  }
+
   let orderedlist = JSON.parse(localStorage.getItem(wishlistItem)) || [];
 
   const existingItemIndex = orderedlist.findIndex((item) => item.id === id);
@@ -727,6 +740,13 @@ function addToWishlist(id) {
 
 // ADD TO CART *****************************************************************
 function addToCart(id) {
+  const itemId = id.toString();
+
+  if (isItemAlreadyInStorage(cartItem, itemId)) {
+    alert("Item is already in the Cart.");
+    return;
+  }
+  
   let orderedlist = JSON.parse(localStorage.getItem(cartItem)) || [];
 
   let new_id = document.getElementById("ids" + id).innerText;
@@ -745,7 +765,7 @@ function addToCart(id) {
     price: new_price,
     quantity: 1,
     item: "cart",
-    totalPrice: new_price, // This line keeps the price without formatting
+    totalPrice: new_price,
     image: new_image,
   });
 
@@ -784,7 +804,7 @@ function updateProductList(filteredProducts) {
     filteredProducts.forEach(function (data) {
       menulist += `
       <div class="col-3">
-        <div class="card mb-3 position-relative"> <!-- Add position-relative to the card -->
+        <div class="card mb-3 position-relative">
           <p id="ids${data.id}" hidden>${data.id}</p>
           <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
       
