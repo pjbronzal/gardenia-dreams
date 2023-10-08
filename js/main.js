@@ -666,13 +666,7 @@ function renderProducts() {
 			<div class="product-title">
 			  <h4 class="title-2"> <a href="product-details.html">${product.title}</a></h4>
 			</div>
-			<div class="product-rating">
-			  <i class="fa fa-star"></i>
-			  <i class="fa fa-star"></i>
-			  <i class="fa fa-star"></i>
-			  <i class="fa fa-star-o"></i>
-			  <i class="fa fa-star-o"></i>
-			</div>
+		
 			<div class="price-box">
 			  <span class="regular-price ">₱${product.price}</span>
 			  <span class="old-price"><del>₱${product.oldPrice}</del></span>

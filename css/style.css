@@ -84,10 +84,11 @@ img {
 }
 
 .img-full {
-  width: 100%;
+  width: 200px; */before this was 100%
   height: 100%;
   overflow: hidden;
   display: block;
+
 }
 
 a {
