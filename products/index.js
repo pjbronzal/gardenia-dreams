@@ -656,6 +656,7 @@ const products = {
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
                       <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
                       <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+                      <button class="btn btn-sm" id="btn-alert"><i class="fa-solid fa-home"></i></button>
                   </div>
               </div>
           </div>
