@@ -64,9 +64,11 @@
                                 aria-expanded="false">
                                 Sort By
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Price from Low to High</a></li>
-                                <li><a class="dropdown-item" href="#">Price from High to Low</a></li>
+                            <ul class="dropdown-menu" id="sort-dropdown">
+                                <li><a class="dropdown-item" href="#" onclick="sortProducts('lowToHigh')">Price from Low
+                                        to High</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="sortProducts('highToLow')">Price from
+                                        High to Low</a></li>
                             </ul>
                         </div>
                     </div>

@@ -773,16 +773,16 @@ document.getElementById("search-button").addEventListener("click", function () {
   updateProductList(filteredProducts);
 });
 
-function updateProductList(filteredProducts) {
+function updateProductList(productsToDisplay) {
   let menu = document.getElementById("menu-list");
   let menulist = "";
 
-  if (filteredProducts.length === 0) {
+  if (productsToDisplay.length === 0) {
     menulist = "<p>No matching products found.</p>";
   } else {
-    filteredProducts.forEach(function (data) {
+    productsToDisplay.forEach(function (data) {
       menulist += `
-      <div class="col-3">
+          <div class="col-3">
         <div class="card mb-3 position-relative">
           <p id="ids${data.id}" hidden>${data.id}</p>
           <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
@@ -798,7 +798,7 @@ function updateProductList(filteredProducts) {
           </div>
         </div>
       </div>
-      `;
+          `;
     });
   }
 
@@ -812,4 +812,21 @@ function filterProductsByCategory(category) {
   );
 
   updateProductList(filteredProducts);
+}
+
+// PRICE SORTING
+function sortProducts(sortOrder) {
+  let sortedProducts = [];
+
+  if (sortOrder === "lowToHigh") {
+    sortedProducts = products.menulist
+      .slice()
+      .sort((a, b) => a.price - b.price);
+  } else if (sortOrder === "highToLow") {
+    sortedProducts = products.menulist
+      .slice()
+      .sort((a, b) => b.price - a.price);
+  }
+
+  updateProductList(sortedProducts);
 }
