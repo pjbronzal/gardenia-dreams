@@ -2654,7 +2654,7 @@ mark {
 /*----------------------------------------*/
 .footer-area .footer-widget-area {
   padding: 100px 0;
-  background-color: #1b1b1b;
+  background-color: #6626a1;
 }
 
 @media (max-width: 991px) {
@@ -2740,7 +2740,7 @@ mark {
 }
 
 .footer-area .footer-copyright-area {
-  background-color: #000000;
+  background-color: #070707;
   padding: 20px 0px;
 }
 
@@ -2759,6 +2759,7 @@ mark {
 .footer-area .footer-copyright-area .copyright-content a:hover {
   color: #ffffff;
 }
+
 
 /*----------------------------------------*/
 /*    07 - Pages - Shop, Blog Area
@@ -5281,7 +5282,7 @@ mark {
 
 @media (max-width: 479px) {
   .login-register-wrapper {
-    padding: 25px 10px;
+      padding: 25px 10px;
   }
 }
 
@@ -5293,7 +5294,7 @@ mark {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #000000;
   font-size: 14px;
   height: 40px;
@@ -5306,6 +5307,12 @@ mark {
 
 .login-register-wrapper .single-input-item input:focus {
   border: 1px solid #4b0082;
+}
+
+.login-register-area {
+  margin-bottom: 20px; 
+  padding: 20px;
+  border-radius: 25px;
 }
 
 /*----------------------------------------*/
