@@ -226,6 +226,7 @@ mark {
   }
 }
 
+
 .container.custom-area {
   padding-right: 15px;
   padding-left: 15px;
@@ -404,6 +405,16 @@ mark {
   font-family: "Great Vibes", cursive;
 }
 
+.section-title-large {
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+
 @media (max-width: 479px) {
   .section-title .section-title-1 {
     font-size: 18px;
@@ -502,6 +513,14 @@ mark {
 .section-title2.bl-color > p {
   color: #222;
 }
+
+/* ---Our Story---*/
+.background-image {
+  background: url('/images/slider/ourstory.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
 
 /* ---Spacing Between Two Row---*/
 .product-slider .slick-slide div:not(:last-child) .product-item {
@@ -1621,8 +1640,14 @@ mark {
 /*----------------------------------------*/
 /*-- Main Header Area --*/
 .main-header-area .header-logo img {
-  width: 125px;
+  width: 200px;
+  margin-left: 250px;
 }
+
+.header-logo {
+  float: left;
+}
+
 
 /* ---Sticky Header--- */
 .header-sticky.header-transparent {
@@ -2736,9 +2761,12 @@ mark {
 }
 
 /*----------------------------------------*/
-/*    07 - Pages - Shop
+/*    07 - Pages - Shop, Blog Area
 /*----------------------------------------*/
 /*-- Shop Sidebar Area Start --*/
+
+
+
 .shop-main-area .sidebar_widget .widget_inner .widget-title, .blog-main-area .sidebar_widget .widget_inner .widget-title {
   font-weight: 700;
   font-size: 22px;
@@ -5484,6 +5512,12 @@ mark {
   .intro11-slider-wrap .swiper-button-prev, .intro11-slider-wrap .swiper-button-next {
     display: none;
   }
+@media (max-width: 768px) {
+    .intro11-slider {
+      width: 100%;
+    }
+  }
+  
 }
 
 .intro11-slider-wrap .swiper-button-prev:focus, .intro11-slider-wrap .swiper-button-next:focus {
