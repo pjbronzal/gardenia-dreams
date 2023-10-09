@@ -44,7 +44,9 @@
                         <a class="nav-link px-3" href="/profile/"><i class="fa-solid fa-user me-2"></i>Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href=""><i class="fa-solid fa-right-from-bracket me-2"></i>Log Out</a>
+                        <button class="nav-link btn px-3" onclick="logout()"><i
+                                class="fa-solid fa-right-from-bracket me-2"></i>Log
+                            Out</buttonclass=>
                     </li>
                 </ul>
             </div>
@@ -62,9 +64,11 @@
                                 aria-expanded="false">
                                 Sort By
                             </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Price from Low to High</a></li>
-                                <li><a class="dropdown-item" href="#">Price from High to Low</a></li>
+                            <ul class="dropdown-menu" id="sort-dropdown">
+                                <li><a class="dropdown-item" href="#" onclick="sortProducts('lowToHigh')">Price from Low
+                                        to High</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="sortProducts('highToLow')">Price from
+                                        High to Low</a></li>
                             </ul>
                         </div>
                     </div>
@@ -202,6 +206,18 @@
         crossorigin="anonymous"></script>
     <script src="index.js"></script>
     <script>
+        // CHECK SESSION STORAGE LOGIN
+        function checkLoginStatus() {
+            const loginData = sessionStorage.getItem("login");
+
+            if (loginData === null) {
+                alert("You are not logged in. Redirecting to the login page.");
+                location.replace("/login/");
+            }
+        }
+        window.onload = checkLoginStatus;
+    </script>
+    <script>
         // WISHLIST COUNT
         if (localStorage.getItem("wishlist")) {
             const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
@@ -214,6 +230,13 @@
             const wishlistItems = JSON.parse(localStorage.getItem("cart"));
             const count = wishlistItems.length;
             document.getElementById("cartCount").textContent = count;
+        }
+
+        // LOGOUT
+        function logout() {
+            sessionStorage.removeItem("login");
+            alert("You have been logged out.");
+            location.replace("/login/");
         }
     </script>
 </body>
