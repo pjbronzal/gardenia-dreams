@@ -223,3 +223,16 @@ span {
   border-radius: 0;
   font-size: 14px;
 }
+
+.modal-content .btn-addToCart {
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+}
+
+.modal-content .btn-addToCart:hover {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #000;
+  color: #000;
+  font-size: 14px;
+}
