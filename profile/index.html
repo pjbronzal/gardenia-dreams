@@ -45,7 +45,9 @@
                         <a class="nav-link px-3" href=""><i class="fa-solid fa-user me-2"></i>Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href=""><i class="fa-solid fa-right-from-bracket me-2"></i>Log Out</a>
+                        <button class="nav-link btn px-3" onclick="logout()"><i
+                                class="fa-solid fa-right-from-bracket me-2"></i>Log
+                            Out</buttonclass=>
                     </li>
                 </ul>
             </div>
@@ -141,18 +143,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="row mt-4">
-                    <div class="col-sm-3">
-                        <h5 class="fw-bold">Menu Categories</h5>
-                    </div>
-                    <div class="col-sm-9">
-                        <div class="d-flex flex-wrap justify-content-between">
-                            <div class="row" id="profile-view"></div>
-                        </div>
-                    </div>
-
-                </div> -->
             </div>
         </div>
     </section>
@@ -167,6 +157,19 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script>
+        // CHECK SESSION STORAGE LOGIN
+        function checkLoginStatus() {
+            const loginData = sessionStorage.getItem("login");
+
+            if (loginData === null) {
+                alert("You are not logged in. Redirecting to the login page.");
+                location.replace("/login/");
+            }
+        }
+        window.onload = checkLoginStatus;
+    </script>
+
+    <script>
         // WISHLIST COUNT
         if (localStorage.getItem("wishlist")) {
             const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
@@ -180,12 +183,20 @@
             const count = wishlistItems.length;
             document.getElementById("cartCount").textContent = count;
         }
-        // Initialize the tab functionality
+        // NavTab
         $('#myTabs a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
         });
+
+        // LOGOUT
+        function logout() {
+            sessionStorage.removeItem("login");
+            alert("You have been logged out.");
+            location.replace("/login/");
+        }
     </script>
+
 </body>
 
 </html>

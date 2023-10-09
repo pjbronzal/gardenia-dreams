@@ -45,7 +45,9 @@
                         <a class="nav-link px-3" href="/profile/"><i class="fa-solid fa-user me-2"></i>Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link px-3" href=""><i class="fa-solid fa-right-from-bracket me-2"></i>Log Out</a>
+                        <button class="nav-link btn px-3" onclick="logout()"><i
+                                class="fa-solid fa-right-from-bracket me-2"></i>Log
+                            Out</buttonclass=>
                     </li>
                 </ul>
             </div>
@@ -146,6 +148,18 @@
     <script src="../products/index.js"></script>
     <script src="index.js"></script>
     <script>
+        // CHECK SESSION STORAGE LOGIN
+        function checkLoginStatus() {
+            const loginData = sessionStorage.getItem("login");
+
+            if (loginData === null) {
+                alert("You are not logged in. Redirecting to the login page.");
+                location.replace("/login/");
+            }
+        }
+        window.onload = checkLoginStatus;
+    </script>
+    <script>
         // HIDE ELEMENTS IF CART IS EMPTY
         if (!localStorage.getItem("cart")) {
             const paymentDiv = document.getElementById("payment-div");
@@ -194,6 +208,13 @@
             alert("Order successfully placed.");
             window.location.href = window.location.href;
         });
+
+        // LOGOUT
+        function logout() {
+            sessionStorage.removeItem("login");
+            alert("You have been logged out.");
+            location.replace("/login/");
+        }
 
     </script>
 </body>
