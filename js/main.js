@@ -245,19 +245,7 @@
       },
     },
   });
-  // Testimonial Carousel
-  var intro11Slider = new Swiper(".testimonial-carousel", {
-    loop: true,
-    speed: 800,
-    slidesPerView: 1,
-    spaceBetween: 10,
-    effect: "slide",
-    navigation: {
-      nextEl: ".home1-slider-next",
-      prevEl: ".home1-slider-prev",
-    },
-    //autoplay: {},
-  });
+ 
   // Latest Post Carousel
   var intro11Slider = new Swiper(".latest-post-carousel", {
     loop: true,
@@ -525,107 +513,105 @@
 /*----------------------------------------*/
   /*-----  Sale Product Card from Landing Page
 	---------------------------------*/
-const products = [
-  {
-    title: "Aurora Roses",
-    image1: "/images/Bouquets/Aurora roses.jpg",
-    image2: "/images/Bouquets/Aurora roses3.jpg",
-    image3: "",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Bahamas Flamingo Pink Rose",
-    image1: "/images/Bouquets/Bahamas Flamingo Pink Rose.jpg",
-    image2: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
-    image3: "",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Cappucino",
-    image1: "/images/Bouquets/Cappuccino rose.jpg",
-    image2: "/images/Bouquets/Cappuccino rose3.jpg",
-    image3: "/images/Bouquets/Cappuccino rose2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  
-  {
-    title: "Golden Warm Sun",
-    image1: "/images/Bouquets/Golden warm sun.jpg",
-    image2: "/images/Bouquets/Golden warm sun3.jpg",
-    image3: "/images/Bouquets/Golden warm sun2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Love in the Heart",
-    image1: "/images/Bouquets/Love in the heart.jpg",
-    image2: "/images/Bouquets/Love in the heart4.jpg",
-    image3: "/images/Bouquets/Love in the heart4.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Love you for all seasons",
-    image1: "/images/Bouquets/Love you for all seasons.jpg",
-    image2: "/images/Bouquets/Love you for all seasons3.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Love you with all my heart",
-    image1: "/images/Bouquets/love you with all my heart.jpg",
-    image2: "/images/Bouquets/love you with all my heart2.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "The Original Intention is the same",
-    image1: "/images/Bouquets/The original intention is the same.jpg",
-    image2: "/images/Bouquets/The original intention is the same12.jpg",
-    image3: "",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Blooming",
-    image1: "/images/Bouquets/Blooming.jpg",
-    image2: "/images/Bouquets/Blooming2.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Concerning You",
-    image1: "/images/Bouquets/Concerning You.jpg",
-    image2: "/images/Bouquets/love you with all my heart1.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Love you with all my heart",
-    image1: "/images/Bouquets/love you with all my heart.jpg",
-    image2: "/images/Bouquets/love you with all my heart1.jpg",
-    image3: "/images/Bouquets/Love you for all seasons2.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-  {
-    title: "Bahamas Flamingo Pink Rose",
-    image1: "/images/Bouquets/Deep love.jpg",
-    image2: "/images/Bouquets/Deep love3.jpg",
-    image3: "/images/Bouquets/Deep love3.jpg",
-    price: 599,
-    oldPrice: 499,
-  },
-];
-
-function renderProducts() {
+  const products = [
+    {
+      title: "Aurora",
+      image1: "/images/Bouquets/Aurora roses.jpg",
+      image2: "/images/Bouquets/Aurora roses3.jpg",
+      image3: "",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Flamingo Rose",
+      image1: "/images/Bouquets/Bahamas Flamingo Pink Rose.jpg",
+      image2: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
+      image3: "",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Cappuccino",
+      image1: "/images/Bouquets/Cappuccino rose.jpg",
+      image2: "/images/Bouquets/Cappuccino rose3.jpg",
+      image3: "/images/Bouquets/Cappuccino rose2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Golden Sun",
+      image1: "/images/Bouquets/Golden warm sun.jpg",
+      image2: "/images/Bouquets/Golden warm sun3.jpg",
+      image3: "/images/Bouquets/Golden warm sun2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Heart Love",
+      image1: "/images/Bouquets/Love in the heart.jpg",
+      image2: "/images/Bouquets/Love in the heart4.jpg",
+      image3: "/images/Bouquets/Love in the heart4.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "All Seasons",
+      image1: "/images/Bouquets/Love you for all seasons.jpg",
+      image2: "/images/Bouquets/Love you for all seasons3.jpg",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Heartfelt Love",
+      image1: "/images/Bouquets/love you with all my heart.jpg",
+      image2: "/images/Bouquets/love you with all my heart2.jpg",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Intention",
+      image1: "/images/Bouquets/The original intention is the same.jpg",
+      image2: "/images/Bouquets/The original intention is the same12.jpg",
+      image3: "",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Blooming",
+      image1: "/images/Bouquets/Blooming.jpg",
+      image2: "/images/Bouquets/Blooming2.jpg",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Concern",
+      image1: "/images/Bouquets/Concerning You.jpg",
+      image2: "/images/Bouquets/love you with all my heart1.jpg",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Love You",
+      image1: "/images/Bouquets/love you with all my heart.jpg",
+      image2: "/images/Bouquets/love you with all my heart1.jpg",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+    {
+      title: "Deep Love",
+      image1: "/images/Bouquets/Deep love.jpg",
+      image2: "/images/Bouquets/Deep love3.jpg",
+      image3: "/images/Bouquets/Deep love3.jpg",
+      price: 599,
+      oldPrice: 499,
+    },
+  ];
+  function renderProducts() {
   const container = document.getElementById("product-card-container");
   container.innerHTML = "";
 

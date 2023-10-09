@@ -226,6 +226,7 @@ mark {
   }
 }
 
+
 .container.custom-area {
   padding-right: 15px;
   padding-left: 15px;
@@ -404,6 +405,16 @@ mark {
   font-family: "Great Vibes", cursive;
 }
 
+.section-title-large {
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+
 @media (max-width: 479px) {
   .section-title .section-title-1 {
     font-size: 18px;
@@ -502,6 +513,14 @@ mark {
 .section-title2.bl-color > p {
   color: #222;
 }
+
+/* ---Our Story---*/
+.background-image {
+  background: url('/images/slider/ourstory.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
 
 /* ---Spacing Between Two Row---*/
 .product-slider .slick-slide div:not(:last-child) .product-item {
@@ -1621,8 +1640,14 @@ mark {
 /*----------------------------------------*/
 /*-- Main Header Area --*/
 .main-header-area .header-logo img {
-  width: 125px;
+  width: 200px;
+  margin-left: 250px;
 }
+
+.header-logo {
+  float: left;
+}
+
 
 /* ---Sticky Header--- */
 .header-sticky.header-transparent {
@@ -2629,7 +2654,7 @@ mark {
 /*----------------------------------------*/
 .footer-area .footer-widget-area {
   padding: 100px 0;
-  background-color: #1b1b1b;
+  background-color: #6626a1;
 }
 
 @media (max-width: 991px) {
@@ -2715,7 +2740,7 @@ mark {
 }
 
 .footer-area .footer-copyright-area {
-  background-color: #000000;
+  background-color: #070707;
   padding: 20px 0px;
 }
 
@@ -2735,10 +2760,14 @@ mark {
   color: #ffffff;
 }
 
+
 /*----------------------------------------*/
-/*    07 - Pages - Shop
+/*    07 - Pages - Shop, Blog Area
 /*----------------------------------------*/
 /*-- Shop Sidebar Area Start --*/
+
+
+
 .shop-main-area .sidebar_widget .widget_inner .widget-title, .blog-main-area .sidebar_widget .widget_inner .widget-title {
   font-weight: 700;
   font-size: 22px;
@@ -5253,7 +5282,7 @@ mark {
 
 @media (max-width: 479px) {
   .login-register-wrapper {
-    padding: 25px 10px;
+      padding: 25px 10px;
   }
 }
 
@@ -5265,7 +5294,7 @@ mark {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 0;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   color: #000000;
   font-size: 14px;
   height: 40px;
@@ -5278,6 +5307,12 @@ mark {
 
 .login-register-wrapper .single-input-item input:focus {
   border: 1px solid #4b0082;
+}
+
+.login-register-area {
+  margin-bottom: 20px; 
+  padding: 20px;
+  border-radius: 25px;
 }
 
 /*----------------------------------------*/
@@ -5484,6 +5519,12 @@ mark {
   .intro11-slider-wrap .swiper-button-prev, .intro11-slider-wrap .swiper-button-next {
     display: none;
   }
+@media (max-width: 768px) {
+    .intro11-slider {
+      width: 100%;
+    }
+  }
+  
 }
 
 .intro11-slider-wrap .swiper-button-prev:focus, .intro11-slider-wrap .swiper-button-next:focus {
