@@ -656,7 +656,6 @@ const products = {
                   <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
                       <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
                       <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
-                      <button class="btn btn-sm" id="btn-alert"><i class="fa-solid fa-home"></i></button>
                   </div>
               </div>
           </div>
@@ -713,10 +712,6 @@ function addToWishlist(id) {
   localStorage.setItem(wishlistItem, JSON.stringify(orderedlist));
   alert("Added To Wishlist.");
   window.location.href = window.location.href;
-
-  // showorder();
-  // document.querySelector(`button[data-id="${id}"]`).disabled = true;
-  // updateTotal();
 }
 
 // ADD TO CART *****************************************************************
@@ -753,13 +748,9 @@ function addToCart(id) {
   localStorage.setItem(cartItem, JSON.stringify(orderedlist));
   alert("Added To Cart.");
   window.location.href = window.location.href;
-  // showorder();
-  // document.querySelector(`button[data-id="${id}"]`).disabled = true;
-  // updateTotal();
 }
 
 // SEARCH PRODUCTS *********************************************************************
-// Creating Filtered Container
 document.getElementById("search-button").addEventListener("click", function () {
   const searchQuery = document
     .getElementById("search-input")
