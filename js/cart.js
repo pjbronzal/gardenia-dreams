@@ -119,6 +119,7 @@ function deleteThisItem(index) {
 
     displayCartItems();
     alert("Item deleted successfully.");
+    window.location.href = window.location.href;
   }
   displayTotal();
 }

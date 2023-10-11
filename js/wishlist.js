@@ -45,6 +45,7 @@ function deleteThisOrder(index) {
     displayWishlistItems();
   }
   alert("Wishlist item deleted.");
+  window.location.href = window.location.href;
 }
 
 displayWishlistItems();

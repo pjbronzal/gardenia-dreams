@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/index.css">
+    <title>Cart</title>
+</head>
+
+<body>
+
+    <header class="navbar navbar-expand-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="">
+                <img src="../img/gd-logo-preview.png">
+            </a>
+            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="products.html"><i
+                                class="fa-solid fa-bag-shopping me-1"></i></i>Order</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="wishlist.html"><span id="wishlistCount" class="me-1">0</span><i
+                                class="fa-solid fa-heart me-1"></i>Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href=""><span id="cartCount" class="me-1">0</span><i
+                                class="fa-solid fa-cart-shopping me-1"></i>My
+                            Cart
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="profile.html"><i class="fa-solid fa-user me-2"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn px-3" onclick="logout()"><i
+                                class="fa-solid fa-right-from-bracket me-2"></i>Log
+                            Out</buttonclass=>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="wish-list">
+        <div class="container">
+            <h3 class="text-center fw-bold">My Cart</h3>
+            <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div id="cart-div"></div>
+                    </div>
+                    <div class="col-sm-5" id="payment-div">
+                        <div class="card">
+                            <h5 class="fw-bold text-center pt-3">Payment Method</h5>
+                            <hr>
+                            <div class="card-body">
+                                <!-- <label for="">Choose your payment method:</label> -->
+                                <select class="form-select" id="paymentMethod" name="paymentMethod">
+                                    <option selected disabled value="0">Choose</option>
+                                    <option value="1">Cash on Delivery</option>
+                                    <option value="2">Payment Center/E-Wallet</option>
+                                    <option disabled value="3">Linked Bank/Account</option>
+                                    <option disabled value="4">Credit/Debit Card</option>
+                                    <option disabled value="5">Online Banking</option>
+                                </select>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="mt-3">Subtotal: </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mt-3 text-end" id="subTotal"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p>Delivery Fee: </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="text-end">₱ 38.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container menu-footer text-center mt-5">
+        <hr>
+        <p>&copy; Gardenia Dreams 2023. All Rights Reserved.</p>
+    </div>
+
+    <div class="sticky-footer d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <p id="totalItems" class="fw-bold ms-5 mb-0"></p>
+        </div>
+
+        <div class="d-flex align-items-center">
+            <p class="fw-bold mb-0 me-3" id="overAll"></p>
+            <button class="btn" data-bs-toggle="modal" id="btnPlaceOrder" data-bs-target="#placeordermodal">Place
+                Order</button>
+        </div>
+    </div>
+
+
+    <!-- PLACE ORDER MODAL -->
+    <div class="modal fade" id="placeordermodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title fw-bold fs-5" id="staticBackdropLabel">Place Order</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to place the order?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="placeOrderButton">Yes, place this order.</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script> -->
+    <script src="js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    <!-- <script>
+        // CHECK SESSION STORAGE LOGIN
+        function checkLoginStatus() {
+            const loginData = sessionStorage.getItem("login");
+
+            if (loginData === null) {
+                alert("You are not logged in. Redirecting to the login page.");
+                location.replace("/login/");
+            }
+        }
+        window.onload = checkLoginStatus;
+    </script> -->
+    <script>
+        // HIDE ELEMENTS IF CART IS EMPTY
+        if (!localStorage.getItem("cart")) {
+            const paymentDiv = document.getElementById("payment-div");
+            const btnPlaceOrder = document.getElementById("btnPlaceOrder");
+            const totalItems = document.getElementById("totalItems");
+            const overAll = document.getElementById("overAll");
+
+            if (paymentDiv) {
+                paymentDiv.style.display = "none";
+            }
+            if (btnPlaceOrder) {
+                btnPlaceOrder.style.display = "none";
+            }
+            if (totalItems) {
+                totalItems.style.display = "none";
+            }
+            if (overAll) {
+                overAll.style.display = "none";
+            }
+        }
+
+        // WISHLIST COUNT
+        if (localStorage.getItem("wishlist")) {
+            const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
+            const count = wishlistItems.length;
+            document.getElementById("wishlistCount").textContent = count;
+        }
+
+        // CART COUNT
+        if (localStorage.getItem("cart")) {
+            const wishlistItems = JSON.parse(localStorage.getItem("cart"));
+            const count = wishlistItems.length;
+            document.getElementById("cartCount").textContent = count;
+        }
+
+
+        // PLACE ORDER
+        function deleteCartFromLocalStorage() {
+            if (localStorage.getItem("cart")) {
+                localStorage.removeItem("cart");
+            }
+        }
+
+        document.getElementById("placeOrderButton").addEventListener("click", function () {
+            deleteCartFromLocalStorage();
+            alert("Order successfully placed.");
+            window.location.href = window.location.href;
+        });
+
+        // LOGOUT
+        function logout() {
+            sessionStorage.removeItem("login");
+            alert("You have been logged out.");
+            location.replace("login/");
+        }
+
+    </script>
+</body>
+
+</html>
