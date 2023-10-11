@@ -638,13 +638,13 @@
 			<span class="onsale">Sale!</span>
 			<div class="add-action d-flex flex-column position-absolute">
 			  <a href="compare.html" title="Compare">
-				<i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left" title="Compare"></i>
+				<i class="bi bi-arrow-repeat" data-toggle="tooltip" data-placement="left" title="Compare"></i>
 			  </a>
 			  <a href="wishlist.html" title="Add To Wishlist">
-				<i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
+				<i class="bi bi-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
 			  </a>
 			  <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-				<i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
+				<i class="bi bi-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
 			  </a>
 			</div>
 		  </div>
@@ -657,7 +657,7 @@
 			  <span class="regular-price ">₱${product.price}</span>
 			  <span class="old-price"><del>₱${product.oldPrice}</del></span>
 			</div>
-			<a href="cart.html" class="btn product-cart">Add to Cart</a>
+			<a href="cart.html" class="btn product-cart"><i class="bi bi-bag-plus me-1"></i>Add to Cart</a>
 		  </div>
 		</div>
 		<!--Single Product End-->
