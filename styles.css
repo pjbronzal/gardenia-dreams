@@ -150,7 +150,7 @@ header {
   color: white;
 }
 
-span {
+.span .me-1{
   background-color: red;
   color: white;
   padding: 2px 5px;
