@@ -670,7 +670,7 @@
 renderProducts();
 
 
-//Login Functions / Register
+// // // //Login Functions / Register
 
 function login() {
   let email = document.getElementById("email").value;
@@ -689,60 +689,60 @@ function login() {
 }
 
 
-// Compare.html
-function renderProducts() {
-  const container = document.querySelector(".compare-table tbody");
-  container.innerHTML = "";
+// // Compare.html
+// function renderProducts() {
+//   const container = document.querySelector(".compare-table tbody");
+//   container.innerHTML = "";
 
-  for (let i = 0; i < products.length; i++) {
-      const product = products[i];
+//   for (let i = 0; i < products.length; i++) {
+//       const product = products[i];
 
-      const row = document.createElement("tr");
-      row.innerHTML = `
-          <td class="first-column">${product.title}</td>
-          <td class="product-image-title">
-              <a href="product-details.html" class="image">
-                  <img class="img-fluid" src="${product.image1}" alt="Compare Product">
-              </a>
-              <a href="#" class="category"></a>
-              <a href="product-details.html" class="title"></a>
-          </td>
-          <td class="product-image-title">
-              <a href="product-details.html" class="image">
-                  <img class="img-fluid" src="${product.image2}" alt="Compare Product">
-              </a>
-              <a href="#" class="category"></a>
-              <a href="product-details.html" class="title"></a>
-          </td>
-          <td class="product-image-title">
-              <a href="product-details-2.html" class="image">
-                  <img class="img-fluid" src="${product.image3}" alt="Compare Product">
-              </a>
-              <a href="#" class="category"></a>
-              <a href="product-details.html" class="title"></a>
-          </td>
-      `;
+//       const row = document.createElement("tr");
+//       row.innerHTML = `
+//           <td class="first-column">${product.title}</td>
+//           <td class="product-image-title">
+//               <a href="product-details.html" class="image">
+//                   <img class="img-fluid" src="${product.image1}" alt="Compare Product">
+//               </a>
+//               <a href="#" class="category"></a>
+//               <a href="product-details.html" class="title"></a>
+//           </td>
+//           <td class="product-image-title">
+//               <a href="product-details.html" class="image">
+//                   <img class="img-fluid" src="${product.image2}" alt="Compare Product">
+//               </a>
+//               <a href="#" class="category"></a>
+//               <a href="product-details.html" class="title"></a>
+//           </td>
+//           <td class="product-image-title">
+//               <a href="product-details-2.html" class="image">
+//                   <img class="img-fluid" src="${product.image3}" alt="Compare Product">
+//               </a>
+//               <a href="#" class="category"></a>
+//               <a href="product-details.html" class="title"></a>
+//           </td>
+//       `;
 
-      container.appendChild(row);
-  }
-}
+//       container.appendChild(row);
+//   }
+// }
 
-// Call the render function on page load or wherever appropriate
-renderProducts();
+// // Call the render function on page load or wherever appropriate
+// renderProducts();
 
-function login() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
+// function login() {
+//   let email = document.getElementById("email").value;
+//   let password = document.getElementById("password").value;
 
-  if (email == "" || password == "") {
-      alert("Please enter a valid email or password.");
-      location.reload();
-  } else {
-      let login_arr = [];
-      login_arr.push({ email: email });
-      sessionStorage.setItem("login", JSON.stringify(login_arr));
-      alert("You have successfully logged in.");
-      location.replace("/products/");
-  }
-}
+//   if (email == "" || password == "") {
+//       alert("Please enter a valid email or password.");
+//       location.reload();
+//   } else {
+//       let login_arr = [];
+//       login_arr.push({ email: email });
+//       sessionStorage.setItem("login", JSON.stringify(login_arr));
+//       alert("You have successfully logged in.");
+//       location.replace("/products/");
+//   }
+// }
 
