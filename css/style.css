@@ -7456,3 +7456,7 @@ mark {
 .modal-open .modal-product .quantity-with-btn .add-to_btn {
   margin-top: 20px;
 }
+
+#sideMenu .off-canvas-inner-content {
+  background-color: rgb(172, 252, 172); /* Change 'green' to the color you desire */
+}
