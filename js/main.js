@@ -611,83 +611,146 @@
       oldPrice: 499,
     },
   ];
-  function renderProducts() {
-  const container = document.getElementById("product-card-container");
-  container.innerHTML = "";
 
-  for (let i = 0; i < products.length; i++) {
-    const product = products[i];
+  let selectedProducts = [];
 
-    if (i % 4 === 0) {
-      var row = document.createElement("div");
-      row.className = "row";
-      container.appendChild(row);
+function toggleSelectProduct(index) {
+    const productCard = document.querySelector(`.product-card[data-index="${index}"]`);
+
+    if (productCard) {
+        const productTitle = productCard.querySelector(".product-title").textContent;
+        const productPrice = productCard.querySelector(".regular-price").textContent.replace("₱", "");
+        const product = {
+            title: productTitle,
+            price: parseFloat(productPrice),
+        };
+
+        const isProductSelected = productCard.classList.contains("selected");
+
+        if (isProductSelected) {
+            productCard.classList.remove("selected");
+            selectedProducts = selectedProducts.filter(p => p.title !== product.title);
+        } else {
+            if (selectedProducts.length >= 3) {
+                alert("You can only compare up to 3 products.");
+                return;
+            }
+            productCard.classList.add("selected");
+            selectedProducts.push(product);
+        }
     }
+}
 
-    const productCard = document.createElement("div");
-    productCard.className = "col-sm-3";
-    productCard.innerHTML = `
-		<!--Single Product Start-->
-		<div class="card single-product position-relative mb-30">
-		  <div class="product-image">
-			<a class="d-block" href="product-details.html">
-			  <img src="${product.image1}" alt="" class="product-image-1 w-100">
-			  <img src="${product.image2}" alt="" class="product-image-2 position-absolute w-100">
-			  <img src="${product.image3}" alt="" class="product-image-3 position-absolute w-100">
-			</a>
-			<span class="onsale">Sale!</span>
-			<div class="add-action d-flex flex-column position-absolute">
-			  <a href="compare.html" title="Compare">
-				<i class="bi bi-arrow-repeat" data-toggle="tooltip" data-placement="left" title="Compare"></i>
-			  </a>
-			  <a href="wishlist.html" title="Add To Wishlist">
-				<i class="bi bi-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
-			  </a>
-			  <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-				<i class="bi bi-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
-			  </a>
-			</div>
-		  </div>
-		  <div class="product-content">
-			<div class="product-title">
-			  <h4 class="title-2"> <a href="product-details.html">${product.title}</a></h4>
-			</div>
-		
-			<div class="price-box">
-			  <span class="regular-price ">₱${product.price}</span>
-			  <span class="old-price"><del>₱${product.oldPrice}</del></span>
-			</div>
-			<a href="cart.html" class="btn product-cart"><i class="bi bi-bag-plus me-1"></i>Add to Cart</a>
-		  </div>
-		</div>
-		<!--Single Product End-->
-	  `;
-    row.appendChild(productCard);
-  }
+function renderProducts() {
+    const container = document.getElementById("product-card-container");
+    container.innerHTML = "";
+
+    for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+
+        if (i % 4 === 0) {
+            var row = document.createElement("div");
+            row.className = "row";
+            container.appendChild(row);
+        }
+
+        const productCard = document.createElement("div");
+        productCard.className = "col-sm-3 product-card";
+        productCard.setAttribute("data-index", i);
+
+        productCard.innerHTML = `
+            <!--Single Product Start-->
+            <div class="card single-product position-relative mb-30">
+                <div class="product-image">
+                    <a class="d-block" href="product-details.html">
+                        <img src="${product.image1}" alt="" class="product-image-1 w-100">
+                        <img src="${product.image2}" alt="" class="product-image-2 position-absolute w-100">
+                        <img src="${product.image3}" alt="" class="product-image-3 position-absolute w-100">
+                    </a>
+                    <span class="onsale">Sale!</span>
+                    <div class="add-action d-flex flex-column position-absolute">
+                        <a href="javascript:void(0);" title="Compare" onclick="toggleSelectProduct(${i})">
+                            <i class="bi bi-arrow-repeat" data-toggle="tooltip" data-placement="left" title="Compare"></i>
+                        </a>
+                        <a href="wishlist.html" title="Add To Wishlist">
+                            <i class="bi bi-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
+                        </a>
+                        <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                            <i class="bi bi-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-title">
+                        <h4 class="title-2"> <a href="product-details.html">${product.title}</a></h4>
+                    </div>
+                    <div class="price-box">
+                        <span class="regular-price ">₱${product.price}</span>
+                        <span class="old-price"><del>₱${product.oldPrice}</del></span>
+                    </div>
+                    <a href="cart.html" class="btn product-cart"><i class="bi bi-bag-plus me-1"></i>Add to Cart</a>
+                </div>
+            </div>
+            <!--Single Product End-->
+        `;
+        row.appendChild(productCard);
+    }
 }
 
 // Call the render function on page load or wherever appropriate
 renderProducts();
 
 
-// // // //Login Functions / Register
+// Function to display the comparison table
+function displayComparisonTable() {
+  const comparisonTable = document.getElementById("comparison-table");
+  comparisonTable.innerHTML = "";
 
-function login() {
-  let email = document.getElementById("email").value;
-  let password = document.getElementById("password").value;
-
-  if (email == "" || password == "") {
-    alert("Please enter a valid email or password.");
-    location.reload();
-  } else {
-    let login_arr = [];
-    login_arr.push({ email: email });
-    sessionStorage.setItem("login", JSON.stringify(login_arr));
-    alert("You have successfully logged in.");
-    location.replace("/products/");
+  if (selectedProducts.length < 2) {
+    alert("Please select at least 2 products to compare.");
+    return;
   }
+
+  const table = document.createElement("table");
+  table.className = "comparison-table";
+  const headerRow = document.createElement("tr");
+  headerRow.innerHTML = '<th>Product</th><th>Price</th>';
+  table.appendChild(headerRow);
+
+  for (const product of selectedProducts) {
+    const row = document.createElement("tr");
+    row.innerHTML = `<td>${product.title}</td><td>₱${product.price}</td>`;
+    table.appendChild(row);
+  }
+
+  comparisonTable.appendChild(table);
 }
 
+// Event listener for the "DOMContentLoaded" event
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if the comparison table element exists on the page
+  const comparisonTable = document.getElementById("comparison-table");
+  if (comparisonTable) {
+    // If it exists (on the compare.html page), call the function to display the comparison table
+    displayComparisonTable();
+  }
+});
 
+// // // //Login Functions / Register
 
+// function login() {
+//   let email = document.getElementById("email").value;
+//   let password = document.getElementById("password").value;
+
+//   if (email == "" || password == "") {
+//     alert("Please enter a valid email or password.");
+//     location.reload();
+//   } else {
+//     let login_arr = [];
+//     login_arr.push({ email: email });
+//     sessionStorage.setItem("login", JSON.stringify(login_arr));
+//     alert("You have successfully logged in.");
+//     location.replace("/products/");
+//   }
+// }
 

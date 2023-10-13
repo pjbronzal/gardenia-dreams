@@ -225,21 +225,63 @@
       </aside>
       <!-- off-canvas menu end -->
   </header>
-
- <!-- Compare Area Start Here -->
- <div class="product-area mt-text-2">
-  <div class="container custom-area-2 overflow-hidden">
-      <div class="row">
-          <!-- Section Title Start -->
-          <!-- ... (your HTML for product listing) -->
+<!-- Modal -->
+<div class="modal gardenia-modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <button type="button" class="close close-button" data-bs-dismiss="modal" aria-label="Close">
+              <span class="close-icon" aria-hidden="true">x</span>
+          </button>
+          <div class="modal-body">
+              <div class="container-fluid custom-area">
+                  <div class="row">
+                      <div class="col-md-6 col-custom">
+                          <div class="modal-product-img">
+                              <a class="w-100" href="#">
+                                  <img class="w-100" src="" alt="Product" id="modal-product-image">
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-md-6 col-custom">
+                          <div class="modal-product">
+                              <div class="product-content">
+                                  <div class="product-title">
+                                      <h4 class="title" id="modal-product-title"></h4>
+                                  </div>
+                                  <div class="price-box">
+                                      <span class="regular-price" id="modal-product-price"></span>
+                                  </div>
+                                  <p class="desc-content" id="modal-product-description"></p>
+                                  <div class="quantity-with-btn">
+                                    <div class="quantity">
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" value="0" type="text">
+                                            <div class="dec qtybutton">-</div>
+                                            <div class="inc qtybutton">+</div>
+                                            <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
+                                            <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="add-to_btn">
+                                        <a class="btn product-cart button-icon flosun-button dark-btn" href="cart.html">Add to cart</a>
+                                        <a class="btn flosun-button secondary-btn rounded-0" href="wishlist.html">Add to wishlist</a>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
-      <div class="row product-row" id="product-card-container">
-          <!-- Product Cards will be generated here from the API response -->
-      </div>
-      <button onclick="displayComparisonTable()">Compare Products</button>
   </div>
 </div>
-<div id="comparison-table"></div>
+
+ <!-- Compare Area Start Here -->
+ <div id="comparison-table">
+  <!-- Comparison table will be displayed here -->
+</div>
+
 
 <!-- Compare Area End Here -->
 
