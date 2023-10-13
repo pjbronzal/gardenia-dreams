@@ -1401,6 +1401,30 @@ mark {
   vertical-align: middle;
 }
 
+.qtybtn {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  /* border: 1px solid #000; */
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+.minus, .plus {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid #e4e4e4;
+  color: #5f5f5f;
+}
+
+.qtybtn:hover, .qtybtn:active {
+  background-color: #e4e4e4;
+  color: #fff;
+}
+
 .quantity {
   margin-right: 10px;
 }
@@ -4397,6 +4421,26 @@ mark {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.pro-thumbnail {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the "x" icon */
+.pro-thumbnail i.bi-x-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 3px 6px 0;
+}
+
+
+.pro-thumbnail img {
+  width: 150px;
 }
 
 .cart-table .table tbody td {

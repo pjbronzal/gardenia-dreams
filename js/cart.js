@@ -1,13 +1,13 @@
 function formatAccounting(amount) {
-  return "₱ " + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function displayCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartDiv = document.getElementById("cart-div");
+  const cartTableBody = document.getElementById("cart-div");
 
   if (cartItems.length === 0) {
-    cartDiv.innerHTML = "<p class='text-end mt-5'>No items added yet.</p>";
+    cartTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>No items added yet.</td></tr>";
     return;
   }
 
@@ -15,38 +15,29 @@ function displayCartItems() {
     .map((item, index) => {
       const subtotal = item.price * item.quantity;
       return `
-      <div class="row">
-        <div class="card mb-3 position-relative p-2">
-          <div class="row">
-            <div class="col-sm-3">
-              <p id="ids${item.id}" hidden>${item.id}</p>
-              <img id="image${item.id}" src="${item.image}" class="img-fluid">
-            </div>
-
-            <div class="col-sm-5 cartItem">
-              <p class="card-title pt-2" id="ids${item.id}">${item.productName}</p>
-              <p class="card-text" id="price${item.id}">Price: ${formatAccounting(item.price)}</p>
-
-              <div class="wrapper qty">
-                <span class="minus" onclick="minusQty(${item.id})">-</span>
-                <span class="num" id="quantity${item.id}">${item.quantity}</span>
-                <span class="plus" onclick="addQty(${item.id})">+</span>
-              </div>
-            </div>
-
-            <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end deleteItem">
-              <button class="btn btn-sm mt-2" onclick="deleteThisItem(${index})"><i class="fa-solid fa-trash"></i></button>
-              <p class="card-title pt-2" id="subtotal${item.id}">${formatAccounting(subtotal)}</p>
-            </div>
-          </div>
+      <tr>
+      <td class="pro-thumbnail">
+        <button onclick="deleteThisItem(${index})"><i class="bi bi-x-circle"></i></button>
+        <img class="img-fluid" src="${item.image}" alt="Product">
+      </td>
+      <td class="pro-title">${item.productName}</td>
+      <td class="pro-price">₱${formatAccounting(item.price)}</td>
+      <td class="pro-quantity">
+        <div class="wrapper qty">
+          <span class="qtybtn minus" onclick="minusQty(${item.id})">-</span>
+          <span class="num p-3" id="quantity${item.id}">${item.quantity}</span>
+          <span class="qtybtn plus" onclick="addQty(${item.id})">+</span>
         </div>
-      </div>
+      </td>
+      <td class="pro-subtotal">₱${formatAccounting(item.quantity * item.price)}</td>
+    </tr>    
     `;
     })
     .join("");
 
-  cartDiv.innerHTML = cartHTML;
+  cartTableBody.innerHTML = cartHTML;
 }
+
 
 function displayTotal() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
@@ -76,14 +67,12 @@ function displayTotal() {
   overallTotalElement.innerText = `Total Amount: ${formatAccounting(overallTotal)}`;
 }
 
-
 function addQty(itemId) {
   const quantityElement = document.getElementById(`quantity${itemId}`);
   let currentQuantity = parseInt(quantityElement.innerText);
   currentQuantity++;
   quantityElement.innerText = currentQuantity;
   updateSubtotal(itemId, currentQuantity);
-  displayTotal();
 }
 
 function minusQty(itemId) {
@@ -94,15 +83,15 @@ function minusQty(itemId) {
     quantityElement.innerText = currentQuantity;
     updateSubtotal(itemId, currentQuantity);
   }
-  displayTotal();
 }
 
 function updateSubtotal(itemId, quantity) {
   const priceElement = document.getElementById(`price${itemId}`);
-  const price = parseFloat(priceElement.innerText.replace(/[^0-9.]/g, ''));
+  const price = parseFloat(priceElement.dataset.price);
   const subtotal = price * quantity;
   const subtotalElement = document.getElementById(`subtotal${itemId}`);
   subtotalElement.innerText = formatAccounting(subtotal);
+  displayTotal();
 }
 
 function deleteThisItem(index) {
