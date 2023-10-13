@@ -15,22 +15,22 @@ function displayCartItems() {
     .map((item, index) => {
       const subtotal = item.price * item.quantity;
       return `
-        <tr>
-            <td class="pro-thumbnail">
-              <button onclick="deleteThisItem(${index})"><i class="bi bi-x-circle"></i></button>
-              <img class="img-fluid" src="${item.image}" alt="Product"</i>
-            </td>
-            <td class="pro-title">${item.productName}</td>
-            <td class="pro-price">₱${formatAccounting(item.price)}</td>
-            <td class="pro-quantity">
-              <div class="wrapper qty">
-                  <span class="qtybtn minus" onclick="minusQty(${item.id})">-</span>
-                  <span class="num p-3" id="quantity${item.id}">${item.quantity}</span>
-                  <span class="qtybtn plus" onclick="addQty(${item.id})">+</span>
-              </div>
-            </td>
-            <td class="pro-subtotal">₱${formatAccounting(subtotal)}</td>
-        </tr>
+      <tr>
+      <td class="pro-thumbnail">
+        <button onclick="deleteThisItem(${index})"><i class="bi bi-x-circle"></i></button>
+        <img class="img-fluid" src="${item.image}" alt="Product">
+      </td>
+      <td class="pro-title">${item.productName}</td>
+      <td class="pro-price">₱${formatAccounting(item.price)}</td>
+      <td class="pro-quantity">
+        <div class="wrapper qty">
+          <span class="qtybtn minus" onclick="minusQty(${item.id})">-</span>
+          <span class="num p-3" id="quantity${item.id}">${item.quantity}</span>
+          <span class="qtybtn plus" onclick="addQty(${item.id})">+</span>
+        </div>
+      </td>
+      <td class="pro-subtotal">₱${formatAccounting(item.quantity * item.price)}</td>
+    </tr>    
     `;
     })
     .join("");
@@ -46,7 +46,7 @@ function displayTotal() {
   
   cartItems.forEach((item) => {
     const subtotalElement = document.getElementById(`subtotal${item.id}`);
-    // const subtotal = parseFloat(subtotalElement.innerText.replace(/[^0-9.]/g, ''));
+    const subtotal = parseFloat(subtotalElement.innerText.replace(/[^0-9.]/g, ''));
     total += subtotal;
 
     itemCount += item.quantity;
