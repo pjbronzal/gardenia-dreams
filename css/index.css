@@ -158,7 +158,7 @@ header {
   border-radius: 4px;
 }
 
-.qty span {
+/* .qty span {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #dedede;
   color: black;
@@ -167,7 +167,7 @@ header {
 
 .qty span.num {
   border: 0;
-}
+} */
 
 .menu-footer p {
   font-size: 14px;
