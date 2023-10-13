@@ -1,222 +1,459 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/styles.css">
-    <title>Cart</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Shopping Cart | Gardenia Dreams</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <!-- CSS
+	============================================ -->
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="/css/vendor/font.awesome.min.css">
+  <!-- Linear Icons CSS -->
+  <link rel="stylesheet" href="/css/vendor/linearicons.min.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="/css/plugins/swiper-bundle.min.css">
+  <!-- Animation CSS -->
+  <link rel="stylesheet" href="/css/plugins/animate.min.css">
+  <!-- Jquery ui CSS -->
+  <link rel="stylesheet" href="/css/plugins/jquery-ui.min.css">
+  <!-- Nice Select CSS -->
+  <link rel="stylesheet" href="/css/plugins/nice-select.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="/css/plugins/magnific-popup.css">
+
+  <!-- Main Style CSS -->
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 
-    <header class="navbar navbar-expand-sm fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="">
-                <img src="../img/gd-logo-preview.png" alt="SK Logo">
-            </a>
-            <button class="navbar-toggler" id="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="/products/"><i
-                                class="fa-solid fa-bag-shopping me-1"></i></i>Order</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="/wishlist/"><span id="wishlistCount" class="me-1">0</span><i
-                                class="fa-solid fa-heart me-1"></i>Wishlist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href=""><span id="cartCount" class="me-1">0</span><i
-                                class="fa-solid fa-cart-shopping me-1"></i>My
-                            Cart
+  <!-- Header Area Start Here -->
+<header class="main-header-area navbar-expand-sm fixed-top">
+    <nav class="navbar navbar-expand-sm" style="height: 80px;">
+
+    <div class="main-header header-transparent header-sticky">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-xl-2 col-md-6 col-6 col-custom">
+                    <div class="header-logo d-flex align-items-center">
+                        <a href="/html/landingpage.html">
+                            <img class="img-full" src="/img/gd-logo-preview.png" alt="Header Logo">
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-3" href="/profile/"><i class="fa-solid fa-user me-2"></i>Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link btn px-3" onclick="logout()"><i
-                                class="fa-solid fa-right-from-bracket me-2"></i>Log
-                            Out</buttonclass=>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </header>
-
-    <section id="wish-list">
-        <div class="container">
-            <h3 class="text-center fw-bold">My Cart</h3>
-            <hr>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-7">
-                        <div id="cart-div"></div>
                     </div>
-                    <div class="col-sm-5" id="payment-div">
-                        <div class="card">
-                            <h5 class="fw-bold text-center pt-3">Payment Method</h5>
-                            <hr>
-                            <div class="card-body">
-                                <!-- <label for="">Choose your payment method:</label> -->
-                                <select class="form-select" id="paymentMethod" name="paymentMethod">
-                                    <option selected disabled value="0">Choose</option>
-                                    <option value="1">Cash on Delivery</option>
-                                    <option value="2">Payment Center/E-Wallet</option>
-                                    <option disabled value="3">Linked Bank/Account</option>
-                                    <option disabled value="4">Credit/Debit Card</option>
-                                    <option disabled value="5">Online Banking</option>
-                                </select>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p class="mt-3">Subtotal: </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mt-3 text-end" id="subTotal"></p>
+                </div>
+                <div class="col-lg-8 d-none d-lg-flex justify-content-center col-custom">
+                    <nav class="main-nav d-none d-lg-flex">
+                        <ul class="nav">
+                            <li>
+                                <a class="active" href="/html/landingpage.html">
+                                    <span class="menu-text"> Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/products/index.html">
+                                    <span class="menu-text">Shop</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="blog-details-fullwidth.html">
+                                    <span class="menu-text"> About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/LOGIN/index.html">
+                                    <span class="menu-text"> Account</span>
+                                </a>
+                                <ul class="dropdown-submenu dropdown-hover">
+                                    <li><a href="contact-us.html">Contact</a></li>
+                                    <li><a href="/LOGIN/index.html">My Account</a></li>
+                                    <li><a href="frequently-questions.html">FAQ</a></li>
+                                    <li><a href="/LOGIN/index.html">Login</a></li>
+                                    <li><a href="/LOGIN/signup.html">Register</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact-us.html">
+                                    <span class="menu-text">Contact Us</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6 col-custom">
+                    <div class="header-right-area main-nav">
+                        <ul class="nav">
+                            <li class="minicart-wrap">
+                                <a href="#" class="minicart-btn toolbar-btn">
+                                    <i class="bi bi-cart-fill"></i>
+                                    <span class="cart-item_count"></span>
+                                </a>
+                                <div class="cart-item-wrapper dropdown-sidemenu dropdown-hover-2">
+                                    <div class="single-cart-item">
+                                        <div class="cart-links d-flex justify-content-between">
+                                            <a class="btn product-cart button-icon gardenia-button dark-btn"
+                                                href="cart.html">View cart</a>
+                                            <a class="btn gardenia-button secondary-btn rounded-0"
+                                                href="checkout.html">Checkout</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <p>Delivery Fee: </p>
+                            </li>
+                            <li class="sidemenu-wrap">
+                                <a href="#"><i class="bi bi-search"></i> </a>
+                                <ul class="dropdown-sidemenu dropdown-hover-2 dropdown-search">
+                                    <li>
+                                        <form action="#">
+                                            <input name="search" id="search" placeholder="Search" type="text">
+                                            <button type="submit"><i class="bi bi-search"></i></button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="account-menu-wrap d-none d-lg-flex">
+                                <a href="#" class="off-canvas-menu-btn">
+                                    <i class="bi bi-list"></i>
+                                </a>
+                            </li>
+                            <li class="mobile-menu-btn d-lg-none">
+                                <a class="off-canvas-btn" href="#">
+                                    <i class="bi bi-list"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <aside class="off-canvas-wrapper" id="mobileMenu">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <div class="btn-close-off-canvas">
+                <i class="bi bi-x"></i>
+            </div>
+            <div class="off-canvas-inner">
+                <div class="search-box-offcanvas">
+                    <form>
+                        <input type="text" placeholder="Search product...">
+                        <button class="search-btn"><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+                <div class="mobile-navigation">
+                    <nav>
+                        <ul class="mobile-menu">
+                            <li class="menu-item-has-children"><a href="/html/landingpage.html">Home</a></li>
+                        </ul>
+
+                        <ul class="mobile-menu">
+                            <li class="menu-item-has-children"><a href="#">Shop</a>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">About</a>
+                            </li>
+                            <li class="menu-item-has-children"><a href="#">Account</a>
+                                <ul class="dropdown">
+                                    <li><a href="frequently-questions.html">FAQ</a></li>
+                                    <li><a href="my-account.html">My Account</a></li>
+                                    <li><a href="/LOGIN/index.html">Login & Register</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="contact-us.html">Contact</a></li>
+                        </ul>
+
+                        <div class="offcanvas-widget-area">
+                            <div class="switcher">
+                                <div class="language">
+                                    <span class="switcher-title">Language: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li><a href="#">English</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">Tagalog</a></li>
+                                                    <li><a href="#">Cebuano</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="text-end">₱ 38.00</p>
+                                </div>
+                                <div class="currency">
+                                    <span class="switcher-title">Currency: </span>
+                                    <div class="switcher-menu">
+                                        <ul>
+                                            <li><a href="#">₱ PHP</a>
+                                                <ul class="switcher-dropdown">
+                                                    <li><a href="#">₱ USD</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+                            <div class="top-info-wrap text-left text-black">
+                                <ul class="address-info">
+                                    <li>
+                                        <i class="bi bi-telephone-fill"></i>
+                                        <a href="info%40yourdomain.html">(+63) 123 4567 890</a>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-envelope"></i>
+                                        <a href="info%40yourdomain.html">info@gardeniadreams.com</a>
+                                    </li>
+                                </ul>
+                                <div class="widget-social">
+                                    <a class="facebook-color-bg" title="Facebook-f" href="#"><i
+                                            class="bi bi-facebook"></i></a>
+                                    <a class="twitter-color-bg" title="Twitter" href="#"><i
+                                            class="bi bi-twitter"></i></a>
+                                    <a class="linkedin-color-bg" title="Linkedin" href="#"><i
+                                            class="bi bi-linkedin"></i></a>
+                                    <a class="youtube-color-bg" title="Youtube" href="#"><i
+                                            class="bi bi-youtube"></i></a>
+                                </div>
+                            </div>
                         </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </aside>
+</header>
+
+    </header>
+    <!-- Header Area End Here -->
+    <!-- Breadcrumb Area Start Here -->
+    <div class="breadcrumbs-area position-relative">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title-3">Shopping Cart</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Shopping Cart</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <div class="container menu-footer text-center mt-5">
-        <hr>
-        <p>&copy; Gardenia Dreams 2023. All Rights Reserved.</p>
     </div>
-
-    <div class="sticky-footer d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-            <p id="totalItems" class="fw-bold ms-5 mb-0"></p>
-        </div>
-
-        <div class="d-flex align-items-center">
-            <p class="fw-bold mb-0 me-3" id="overAll"></p>
-            <button class="btn" data-bs-toggle="modal" id="btnPlaceOrder" data-bs-target="#placeordermodal">Place
-                Order</button>
-        </div>
-    </div>
-
-
-    <!-- PLACE ORDER MODAL -->
-    <div class="modal fade" id="placeordermodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title fw-bold fs-5" id="staticBackdropLabel">Place Order</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Breadcrumb Area End Here -->
+    <!-- cart main wrapper start -->
+    <div class="cart-main-wrapper mt-no-text">
+        <div class="container custom-area">
+            <div class="row">
+                <div class="col-lg-12 col-custom">
+                    <!-- Cart Table Area -->
+                    <div class="cart-table table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product Image</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-div">
+                                <!-- Cart items will be added here -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Are you sure you want to place the order?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-danger" id="placeOrderButton">Yes, place this order.</button>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 ml-auto col-custom">
+                    <!-- Cart Calculation Area -->
+                    <div class="cart-calculator-wrapper">
+                        <div class="cart-calculate-items">
+                            <h3>Cart Totals</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td>Sub Total</td>
+                                        <td>₱230</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shipping</td>
+                                        <td>₱70</td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td>Total</td>
+                                        <td class="total-amount">₱300</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <a href="checkout.html" class="btn flosun-button primary-btn rounded-0 black-btn w-100">Proceed
+                            To Checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- cart main wrapper end -->
+      <!--Footer Area Start-->
+      <footer class="footer-area">
+        <div class="footer-widget-area">
+          <div class="container container-default custom-area">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
+                <div class="single-footer-widget m-0">
+                  <div class="footer-logo">
+                    <a href="index.html">
+                      <img src="/img/gd-text.png" alt="Logo Image">
+                    </a>
+                  </div>
+                  <p class="desc-content">Make smiles and make lasting memories with your loved ones.
+                  </p>
+                  <div class="social-links">
+                    <ul class="d-flex">
+                      <li>
+                        <a class="rounded-circle" href="#" title="Facebook">
+                          <i class="bi bi-facebook"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="rounded-circle" href="#" title="Twitter">
+                          <i class="bi bi-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="rounded-circle" href="#" title="Linkedin">
+                          <i class="bi bi-linkedin"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="rounded-circle" href="#" title="Youtube">
+                          <i class="bi bi-youtube"></i>
+                        </a>
+                      </li>
 
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                <div class="single-footer-widget">
+                  <h2 class="widget-title">Information</h2>
+                  <ul class="widget-list">
+                    <li><a href="about-us.html">Our Company</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="about-us.html">Our Services</a></li>
+                    <li><a href="about-us.html">Why We?</a></li>
+                    <li><a href="about-us.html">Careers</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                <div class="single-footer-widget">
+                  <h2 class="widget-title">Quicklink</h2>
+                  <ul class="widget-list">
+                    <li><a href="about-us.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact-us.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-2 col-custom">
+                <div class="single-footer-widget">
+                  <h2 class="widget-title">Support</h2>
+                  <ul class="widget-list">
+                    <li><a href="contact-us.html">Online Support</a></li>
+                    <li><a href="contact-us.html">Shipping Policy</a></li>
+                    <li><a href="contact-us.html">Return Policy</a></li>
+                    <li><a href="contact-us.html">Privacy Policy</a></li>
+                    <li><a href="contact-us.html">Terms of Service</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-custom">
+                <div class="single-footer-widget">
+                  <h2 class="widget-title">See Information</h2>
+                  <div class="widget-body">
+                    <address>123, ABC, Road ##, Main City, Your address goes here.<br>Phone: (+63)
+                      456 7890 123<br>Email: info@gardeniadreams.com</address>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright-area">
+          <div class="container custom-area">
+            <div class="row">
+              <div class="col-12 text-center col-custom">
+                <div class="copyright-content">
+                  <p>This site was developed by Ann Marie and Precious as a project for Kodego. All
+                    acknowledgements are attributed to the owner.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--Footer Area End-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+<!-- Slider Navigation Intro 11 -->
+ <!-- <div class="home1-slider-prev swiper-button-prev main-slider-nav"><i class="#"></i></div>
+ <div class="home1-slider-next swiper-button-next main-slider-nav"><i class="#"></i></div> -->
+ <!-- Slider pagination -->
+ <div class="swiper-pagination default-pagination"></div>
 
-    <script src="../products/index.js"></script>
-    <script src="index.js"></script>
-    <!-- <script>
-        // CHECK SESSION STORAGE LOGIN
-        function checkLoginStatus() {
-            const loginData = sessionStorage.getItem("login");
+      <!-- Scroll to Top Start -->
+      <a class="scroll-to-top" href="#">
+        <i class="bi bi-arrow-up-short"></i>
+      </a>
+      <!-- Scroll to Top End -->
 
-            if (loginData === null) {
-                alert("You are not logged in. Redirecting to the login page.");
-                location.replace("/login/");
-            }
-        }
-        window.onload = checkLoginStatus;
-    </script> -->
-    <script>
-        // HIDE ELEMENTS IF CART IS EMPTY
-        if (!localStorage.getItem("cart")) {
-            const paymentDiv = document.getElementById("payment-div");
-            const btnPlaceOrder = document.getElementById("btnPlaceOrder");
-            const totalItems = document.getElementById("totalItems");
-            const overAll = document.getElementById("overAll");
+      <!-- JS
+    ============================================ -->
 
-            if (paymentDiv) {
-                paymentDiv.style.display = "none";
-            }
-            if (btnPlaceOrder) {
-                btnPlaceOrder.style.display = "none";
-            }
-            if (totalItems) {
-                totalItems.style.display = "none";
-            }
-            if (overAll) {
-                overAll.style.display = "none";
-            }
-        }
+      <!-- jQuery JS -->
+      <script src="/js/vendor/jquery-3.6.0.min.js"></script>
+      <!-- jQuery Migrate JS -->
+      <script src="/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+      <!-- Modernizer JS -->
+      <script src="/js/vendor/modernizr-3.7.1.min.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="/js/vendor/bootstrap.bundle.min.js"></script>
 
-        // WISHLIST COUNT
-        if (localStorage.getItem("wishlist")) {
-            const wishlistItems = JSON.parse(localStorage.getItem("wishlist"));
-            const count = wishlistItems.length;
-            document.getElementById("wishlistCount").textContent = count;
-        }
+      <!-- Swiper Slider JS -->
+      <script src="/js/plugins/swiper-bundle.min.js"></script>
+      <!-- nice select JS -->
+      <script src="/js/plugins/nice-select.min.js"></script>
+      <!-- Ajaxchimpt js -->
+      <script src="/js/plugins/jquery.ajaxchimp.min.js"></script>
+      <!-- Jquery Ui js -->
+      <script src="/js/plugins/jquery-ui.min.js"></script>
+      <!-- Jquery Countdown js -->
+      <script src="/js/plugins/jquery.countdown.min.js"></script>
+      <!-- jquery magnific popup js -->
+      <script src="/js/plugins/jquery.magnific-popup.min.js"></script>
 
-        // CART COUNT
-        if (localStorage.getItem("cart")) {
-            const wishlistItems = JSON.parse(localStorage.getItem("cart"));
-            const count = wishlistItems.length;
-            document.getElementById("cartCount").textContent = count;
-        }
+      <!-- Main JS -->
+      <script src="/js/main.js"></script>
+      <script src="/js/cartDup.js"></script>
 
-
-        // PLACE ORDER
-        function deleteCartFromLocalStorage() {
-            if (localStorage.getItem("cart")) {
-                localStorage.removeItem("cart");
-            }
-        }
-
-        document.getElementById("placeOrderButton").addEventListener("click", function () {
-            deleteCartFromLocalStorage();
-            alert("Order successfully placed.");
-            window.location.href = window.location.href;
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          renderProducts();
         });
+      </script>
 
-        // LOGOUT
-        function logout() {
-            sessionStorage.removeItem("login");
-            alert("You have been logged out.");
-            location.replace("/login/");
-        }
-
-    </script>
 </body>
 
 </html>

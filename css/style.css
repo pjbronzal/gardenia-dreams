@@ -4398,6 +4398,26 @@ mark {
           align-items: center;
 }
 
+.pro-thumbnail {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the "x" icon */
+.pro-thumbnail i.bi-x-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  padding: 3px 6px 0;
+}
+
+
+.pro-thumbnail img {
+  width: 150px;
+}
+
 .cart-table .table tbody td {
   border-color: #eceff8;
   text-align: center;

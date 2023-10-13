@@ -1,13 +1,60 @@
 function formatAccounting(amount) {
-  return "₱ " + amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+// OLD  DISP FUNCTION
+// function displayCartItems() {
+//   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+//   const cartDiv = document.getElementById("cart-div");
+
+//   if (cartItems.length === 0) {
+//     cartDiv.innerHTML = "<p class='text-end mt-5'>No items added yet.</p>";
+//     return;
+//   }
+
+//   const cartHTML = cartItems
+//     .map((item, index) => {
+//       const subtotal = item.price * item.quantity;
+//       return `
+//       <div class="row">
+//         <div class="card mb-3 position-relative p-2">
+//           <div class="row">
+//             <div class="col-sm-3">
+//               <p id="ids${item.id}" hidden>${item.id}</p>
+//               <img id="image${item.id}" src="${item.image}" class="img-fluid">
+//             </div>
+
+//             <div class="col-sm-5 cartItem">
+//               <p class="card-title pt-2" id="ids${item.id}">${item.productName}</p>
+//               <p class="card-text" id="price${item.id}">Price: ${formatAccounting(item.price)}</p>
+
+//               <div class="wrapper qty">
+//                 <span class="minus" onclick="minusQty(${item.id})">-</span>
+//                 <span class="num" id="quantity${item.id}">${item.quantity}</span>
+//                 <span class="plus" onclick="addQty(${item.id})">+</span>
+//               </div>
+//             </div>
+
+//             <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end deleteItem">
+//               <button class="btn btn-sm mt-2" onclick="deleteThisItem(${index})"><i class="fa-solid fa-trash"></i></button>
+//               <p class="card-title pt-2" id="subtotal${item.id}">${formatAccounting(subtotal)}</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     `;
+//     })
+//     .join("");
+
+//   cartDiv.innerHTML = cartHTML;
+// }
 
 function displayCartItems() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartDiv = document.getElementById("cart-div");
+  const cartTableBody = document.getElementById("cart-div");
 
   if (cartItems.length === 0) {
-    cartDiv.innerHTML = "<p class='text-end mt-5'>No items added yet.</p>";
+    cartTableBody.innerHTML = "<tr><td colspan='6' class='text-center'>No items added yet.</td></tr>";
     return;
   }
 
@@ -15,38 +62,33 @@ function displayCartItems() {
     .map((item, index) => {
       const subtotal = item.price * item.quantity;
       return `
-      <div class="row">
-        <div class="card mb-3 position-relative p-2">
-          <div class="row">
-            <div class="col-sm-3">
-              <p id="ids${item.id}" hidden>${item.id}</p>
-              <img id="image${item.id}" src="${item.image}" class="img-fluid">
-            </div>
-
-            <div class="col-sm-5 cartItem">
-              <p class="card-title pt-2" id="ids${item.id}">${item.productName}</p>
-              <p class="card-text" id="price${item.id}">Price: ${formatAccounting(item.price)}</p>
-
-              <div class="wrapper qty">
-                <span class="minus" onclick="minusQty(${item.id})">-</span>
-                <span class="num" id="quantity${item.id}">${item.quantity}</span>
-                <span class="plus" onclick="addQty(${item.id})">+</span>
-              </div>
-            </div>
-
-            <div class="col-sm-4 d-flex flex-column justify-content-between align-items-end deleteItem">
-              <button class="btn btn-sm mt-2" onclick="deleteThisItem(${index})"><i class="fa-solid fa-trash"></i></button>
-              <p class="card-title pt-2" id="subtotal${item.id}">${formatAccounting(subtotal)}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <tr>
+            <td class="pro-thumbnail">
+              <button onclick="deleteThisItem(${index})"><i class="bi bi-x-circle"></i></button>
+              <img class="img-fluid" src="${item.image}" alt="Product"</i>
+            </td>
+            <td class="pro-title">${item.productName}</td>
+            <td class="pro-price">₱${formatAccounting(item.price)}</td>
+            <td class="pro-quantity">
+                <div class="quantity">
+                    <div class="cart-plus-minus">
+                        <input class="cart-plus-minus-box num" value="0" type="text" id="quantity${item.id}">
+                        <div class="dec qtybutton" onclick="minusQty(${item.id})">-</div>
+                        <div class="inc qtybutton" onclick="addQty(${item.id})">+</div>
+                        <div class="dec qtybutton"><i class="fa fa-minus"></i></div>
+                        <div class="inc qtybutton"><i class="fa fa-plus"></i></div>
+                    </div>
+                </div>
+            </td>
+            <td class="pro-subtotal">₱${formatAccounting(subtotal)}</td>
+        </tr>
     `;
     })
     .join("");
 
-  cartDiv.innerHTML = cartHTML;
+  cartTableBody.innerHTML = cartHTML;
 }
+
 
 function displayTotal() {
   const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
