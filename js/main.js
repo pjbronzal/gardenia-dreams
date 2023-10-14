@@ -521,6 +521,7 @@
       image3: "",
       price: 599,
       oldPrice: 499,
+      content: "hakdog",
     },
     {
       title: "Flamingo Rose",
@@ -753,4 +754,6 @@ document.addEventListener("DOMContentLoaded", function () {
 //     location.replace("/products/");
 //   }
 // }
+
+
 
