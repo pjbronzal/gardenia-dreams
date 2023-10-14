@@ -245,7 +245,7 @@
       },
     },
   });
- 
+
   // Latest Post Carousel
   var intro11Slider = new Swiper(".latest-post-carousel", {
     loop: true,
@@ -509,157 +509,163 @@
   });
 })(jQuery);
 
-
 /*----------------------------------------*/
-  /*-----  Sale Product Card from Landing Page
+/*-----  Sale Product Card from Landing Page
 	---------------------------------*/
-  const products = [
-    {
-      title: "Aurora",
-      image1: "/images/Bouquets/Aurora roses.jpg",
-      image2: "/images/Bouquets/Aurora roses3.jpg",
-      image3: "",
-      price: 599,
-      oldPrice: 499,
-      content: "hakdog",
-    },
-    {
-      title: "Flamingo Rose",
-      image1: "/images/Bouquets/Bahamas Flamingo Pink Rose.jpg",
-      image2: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
-      image3: "",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Cappuccino",
-      image1: "/images/Bouquets/Cappuccino rose.jpg",
-      image2: "/images/Bouquets/Cappuccino rose3.jpg",
-      image3: "/images/Bouquets/Cappuccino rose2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Golden Sun",
-      image1: "/images/Bouquets/Golden warm sun.jpg",
-      image2: "/images/Bouquets/Golden warm sun3.jpg",
-      image3: "/images/Bouquets/Golden warm sun2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Heart Love",
-      image1: "/images/Bouquets/Love in the heart.jpg",
-      image2: "/images/Bouquets/Love in the heart4.jpg",
-      image3: "/images/Bouquets/Love in the heart4.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "All Seasons",
-      image1: "/images/Bouquets/Love you for all seasons.jpg",
-      image2: "/images/Bouquets/Love you for all seasons3.jpg",
-      image3: "/images/Bouquets/Love you for all seasons2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Heartfelt Love",
-      image1: "/images/Bouquets/love you with all my heart.jpg",
-      image2: "/images/Bouquets/love you with all my heart2.jpg",
-      image3: "/images/Bouquets/Love you for all seasons2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Intention",
-      image1: "/images/Bouquets/The original intention is the same.jpg",
-      image2: "/images/Bouquets/The original intention is the same12.jpg",
-      image3: "",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Blooming",
-      image1: "/images/Bouquets/Blooming.jpg",
-      image2: "/images/Bouquets/Blooming2.jpg",
-      image3: "/images/Bouquets/Love you for all seasons2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Concern",
-      image1: "/images/Bouquets/Concerning You.jpg",
-      image2: "/images/Bouquets/love you with all my heart1.jpg",
-      image3: "/images/Bouquets/Love you for all seasons2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Love You",
-      image1: "/images/Bouquets/love you with all my heart.jpg",
-      image2: "/images/Bouquets/love you with all my heart1.jpg",
-      image3: "/images/Bouquets/Love you for all seasons2.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-    {
-      title: "Deep Love",
-      image1: "/images/Bouquets/Deep love.jpg",
-      image2: "/images/Bouquets/Deep love3.jpg",
-      image3: "/images/Bouquets/Deep love3.jpg",
-      price: 599,
-      oldPrice: 499,
-    },
-  ];
+const products = [
+  {
+    title: "Aurora",
+    image1: "/images/Bouquets/Aurora roses.jpg",
+    image2: "/images/Bouquets/Aurora roses3.jpg",
+    image3: "",
+    price: 599,
+    oldPrice: 499,
+    content: "hakdog",
+  },
+  {
+    title: "Flamingo Rose",
+    image1: "/images/Bouquets/Bahamas Flamingo Pink Rose.jpg",
+    image2: "/images/Bouquets/Bahamas Flamingo Pink Rose4.jpg",
+    image3: "",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Cappuccino",
+    image1: "/images/Bouquets/Cappuccino rose.jpg",
+    image2: "/images/Bouquets/Cappuccino rose3.jpg",
+    image3: "/images/Bouquets/Cappuccino rose2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Golden Sun",
+    image1: "/images/Bouquets/Golden warm sun.jpg",
+    image2: "/images/Bouquets/Golden warm sun3.jpg",
+    image3: "/images/Bouquets/Golden warm sun2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Heart Love",
+    image1: "/images/Bouquets/Love in the heart.jpg",
+    image2: "/images/Bouquets/Love in the heart4.jpg",
+    image3: "/images/Bouquets/Love in the heart4.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "All Seasons",
+    image1: "/images/Bouquets/Love you for all seasons.jpg",
+    image2: "/images/Bouquets/Love you for all seasons3.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Heartfelt Love",
+    image1: "/images/Bouquets/love you with all my heart.jpg",
+    image2: "/images/Bouquets/love you with all my heart2.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Intention",
+    image1: "/images/Bouquets/The original intention is the same.jpg",
+    image2: "/images/Bouquets/The original intention is the same12.jpg",
+    image3: "",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Blooming",
+    image1: "/images/Bouquets/Blooming.jpg",
+    image2: "/images/Bouquets/Blooming2.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Concern",
+    image1: "/images/Bouquets/Concerning You.jpg",
+    image2: "/images/Bouquets/love you with all my heart1.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Love You",
+    image1: "/images/Bouquets/love you with all my heart.jpg",
+    image2: "/images/Bouquets/love you with all my heart1.jpg",
+    image3: "/images/Bouquets/Love you for all seasons2.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+  {
+    title: "Deep Love",
+    image1: "/images/Bouquets/Deep love.jpg",
+    image2: "/images/Bouquets/Deep love3.jpg",
+    image3: "/images/Bouquets/Deep love3.jpg",
+    price: 599,
+    oldPrice: 499,
+  },
+];
 
-  let selectedProducts = [];
+let selectedProducts = [];
 
 function toggleSelectProduct(index) {
-    const productCard = document.querySelector(`.product-card[data-index="${index}"]`);
+  const productCard = document.querySelector(
+    `.product-card[data-index="${index}"]`
+  );
 
-    if (productCard) {
-        const productTitle = productCard.querySelector(".product-title").textContent;
-        const productPrice = productCard.querySelector(".regular-price").textContent.replace("₱", "");
-        const product = {
-            title: productTitle,
-            price: parseFloat(productPrice),
-        };
+  if (productCard) {
+    const productTitle =
+      productCard.querySelector(".product-title").textContent;
+    const productPrice = productCard
+      .querySelector(".regular-price")
+      .textContent.replace("₱", "");
+    const product = {
+      title: productTitle,
+      price: parseFloat(productPrice),
+    };
 
-        const isProductSelected = productCard.classList.contains("selected");
+    const isProductSelected = productCard.classList.contains("selected");
 
-        if (isProductSelected) {
-            productCard.classList.remove("selected");
-            selectedProducts = selectedProducts.filter(p => p.title !== product.title);
-        } else {
-            if (selectedProducts.length >= 3) {
-                alert("You can only compare up to 3 products.");
-                return;
-            }
-            productCard.classList.add("selected");
-            selectedProducts.push(product);
-        }
+    if (isProductSelected) {
+      productCard.classList.remove("selected");
+      selectedProducts = selectedProducts.filter(
+        (p) => p.title !== product.title
+      );
+    } else {
+      if (selectedProducts.length >= 3) {
+        alert("You can only compare up to 3 products.");
+        return;
+      }
+      productCard.classList.add("selected");
+      selectedProducts.push(product);
     }
+  }
 }
 
 function renderProducts() {
-    const container = document.getElementById("product-card-container");
-    container.innerHTML = "";
+  const container = document.getElementById("product-card-container");
+  container.innerHTML = "";
 
-    for (let i = 0; i < products.length; i++) {
-        const product = products[i];
+  for (let i = 0; i < products.length; i++) {
+    const product = products[i];
 
-        if (i % 4 === 0) {
-            var row = document.createElement("div");
-            row.className = "row";
-            container.appendChild(row);
-        }
+    if (i % 4 === 0) {
+      var row = document.createElement("div");
+      row.className = "row";
+      container.appendChild(row);
+    }
 
-        const productCard = document.createElement("div");
-        productCard.className = "col-sm-3 product-card";
-        productCard.setAttribute("data-index", i);
+    const productCard = document.createElement("div");
+    productCard.className = "col-sm-3 product-card";
+    productCard.setAttribute("data-index", i);
 
-        productCard.innerHTML = `
+    productCard.innerHTML = `
             <!--Single Product Start-->
             <div class="card single-product position-relative mb-30">
                 <div class="product-image">
@@ -694,38 +700,12 @@ function renderProducts() {
             </div>
             <!--Single Product End-->
         `;
-        row.appendChild(productCard);
-    }
+    row.appendChild(productCard);
+  }
 }
 
 // Call the render function on page load or wherever appropriate
 renderProducts();
-
-
-// Function to display the comparison table
-function displayComparisonTable() {
-  const comparisonTable = document.getElementById("comparison-table");
-  comparisonTable.innerHTML = "";
-
-  if (selectedProducts.length < 2) {
-    alert("Please select at least 2 products to compare.");
-    return;
-  }
-
-  const table = document.createElement("table");
-  table.className = "comparison-table";
-  const headerRow = document.createElement("tr");
-  headerRow.innerHTML = '<th>Product</th><th>Price</th>';
-  table.appendChild(headerRow);
-
-  for (const product of selectedProducts) {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td>${product.title}</td><td>₱${product.price}</td>`;
-    table.appendChild(row);
-  }
-
-  comparisonTable.appendChild(table);
-}
 
 // Event listener for the "DOMContentLoaded" event
 document.addEventListener("DOMContentLoaded", function () {
@@ -754,6 +734,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //     location.replace("/products/");
 //   }
 // }
-
-
-
