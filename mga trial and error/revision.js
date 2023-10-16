@@ -2,7 +2,7 @@
 const products = [
     {
       title: "Aurora",
-      image1: "/images/Bouquets/Aurora roses.jpg",
+      image1: "images/Bouquets/All the Way to the Sun.jpg",
       image2: "/images/Bouquets/Aurora roses3.jpg",
       image3: "",
       price: 599,
@@ -120,80 +120,67 @@ const products = [
 
       },
     ];
-  // Function to generate the product HTML
-  function generateProductHTML(product) {
-    const productHTML = `
-      <div class="product-item">
-        <div class="single-product position-relative mr-0 ml-0">
-          <div class="product-image">
-            <a class="d-block" href="product-details.html">
-              <img src="${product.image1}" alt="" class="product-image-1 w-100">
-              <img src="${product.image2}" alt="" class="product-image-2 position-absolute w-100">
-            </a>
-            <span class="onsale">Sale!</span>
-            <div class="add-action d-flex flex-column position-absolute">
-              <a href="compare.html" title="Compare">
-                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left" title="Compare"></i>
-              </a>
-              <a href="wishlist.html" title="Add To Wishlist">
-                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
-              </a>
-              <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-                <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
-              </a>
+    function generateProductHTML(product) {
+        const productHTML = `
+          <div class="product-item">
+            <div class="single-product position-relative mr-0 ml-0">
+              <div class="product-image">
+                <a class="d-block" href="product-details.html">
+                  <img src="${product.image1}" alt="" class="product-image-1 w-100">
+                  <img src="${product.image2}" alt="" class="product-image-2 position-absolute w-100">
+                </a>
+                <span class="onsale">Sale!</span>
+                <div class="add-action d-flex flex-column position-absolute">
+                  <a href="compare.html" title="Compare">
+                    <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="left" title="Compare"></i>
+                  </a>
+                  <a href="wishlist.html" title="Add To Wishlist">
+                    <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="left" title="Wishlist"></i>
+                  </a>
+                  <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                    <i class="lnr lnr-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-content">
+                <div class="product-title">
+                  <h4 class="title-2"><a href="product-details.html">${product.title}</a></h4>
+                </div>
+                <div class="price-box">
+                  <span class="regular-price">${product.price}</span>
+                  <span class="old-price"><del>${product.oldPrice}</del></span>
+                </div>
+                <a href="cart.html" class="btn product-cart">Add to Cart</a>
+              </div>
+              <div class="product-content-listview">
+                <div class="product-title">
+                  <h4 class="title-2"><a href="product-details.html">${product.title}</a></h4>
+                </div>
+                <div class="price-box">
+                  <span class="regular-price">${product.price}</span>
+                  <span class="old-price"><del>${product.oldPrice}</del></span>
+                </div>
+                <p class="desc-content">${product.content}</p>
+                <div class="button-listview">
+                  <a href="cart.html" class="btn product-cart button-icon gardenia-button dark-btn" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                    <span>Add to Cart</span>
+                  </a>
+                  <a class="list-icon" href="compare.html" title="Compare">
+                    <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="top" title="Compare"></i>
+                  </a>
+                  <a class="list-icon" href="wishlist.html" title="Add To Wishlist">
+                    <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="top" title="Wishlist"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="product-content">
-            <div class="product-title">
-              <h4 class="title-2"><a href="product-details.html">${product.title}</a></h4>
-            </div>
-            <div class="price-box">
-              <span class="regular-price">${product.price}</span>
-              <span class="old-price"><del>${product.oldPrice}</del></span>
-            </div>
-            <a href="cart.html" class="btn product-cart">Add to Cart</a>
-          </div>
-          <div class="product-content-listview">
-            <div class="product-title">
-              <h4 class="title-2"><a href="product-details.html">${product.title}</a></h4>
-            </div>
-            <div class="price-box">
-              <span class="regular-price">${product.price}</span>
-              <span class="old-price"><del>${product.oldPrice}</del></span>
-            </div>
-            <p class="desc-content">${product.content}</p>
-            <div class="button-listview">
-              <a href="cart.html" class="btn product-cart button-icon flosun-button dark-btn" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                <span>Add to Cart</span>
-              </a>
-              <a class="list-icon" href="compare.html" title="Compare">
-                <i class="lnr lnr-sync" data-toggle="tooltip" data-placement="top" title="Compare"></i>
-              </a>
-              <a class="list-icon" href="wishlist.html" title="Add To Wishlist">
-                <i class="lnr lnr-heart" data-toggle="tooltip" data-placement="top" title="Wishlist"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-    return productHTML;
-  }
-  
-  // Function to display products on the page
-  function displayProducts() {
-    const shopWrapper = document.querySelector('.shop_wrapper.grid_3');
-    products.forEach((product) => {
-      const productHTML = generateProductHTML(product);
-      shopWrapper.innerHTML += productHTML;
-    });
-  }
-  
-  // Call the displayProducts function to show the products
-  displayProducts();
+        `;
+        return productHTML;
+      }
 
   
-  // Function to handle sorting of products
+// Function to handle sorting of products
 function sortProducts() {
     const selectElement = document.querySelector('.form-control.nice-select');
     selectElement.addEventListener('change', (event) => {
@@ -203,10 +190,10 @@ function sortProducts() {
         // Sort alphabetically, A-Z
         products.sort((a, b) => a.title.localeCompare(b.title));
       } else if (sortBy === '2') {
-        // Sort by popularity
+        // Sort by popularity (e.g., based on number of sales or ratings)
         // Add your logic here
       } else if (sortBy === '3') {
-        // Sort by newness
+        // Sort by newness (e.g., based on product release date)
         // Add your logic here
       } else if (sortBy === '4') {
         // Sort by price: low to high
@@ -219,11 +206,7 @@ function sortProducts() {
       displayProducts();
     });
   }
-  
-  // Call the sortProducts function to enable sorting
-  sortProducts();
-
-  // Function to handle list view and quick view
+// Function to handle list view and quick view
 function handleProductViews() {
     const shopWrapper = document.querySelector('.shop_wrapper.grid_3');
     shopWrapper.addEventListener('click', (event) => {
@@ -238,7 +221,4 @@ function handleProductViews() {
       }
     });
   }
-  
-  // Call the handleProductViews function to enable list view and quick view
-  handleProductViews();
-  
+    
