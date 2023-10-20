@@ -636,6 +636,7 @@ const products = {
       category: "gifts, birthday",
       price: 5600,
       image: "../img/gifts/chocolate-medley.webp",
+      image3: "/images/Bouquets/Love you for all seasons2.jpg",
     },
   ],
   orderedlist: [],
@@ -769,33 +770,39 @@ function updateProductList(productsToDisplay) {
   let menu = document.getElementById("menu-list");
   let menulist = "";
 
-  if (productsToDisplay.length === 0) {
-    menulist = "<p>No matching products found.</p>";
-  } else {
-    productsToDisplay.forEach(function (data) {
-      menulist += `
-          <div class="col-3">
-        <div class="card mb-3 position-relative">
-          <p id="ids${data.id}" hidden>${data.id}</p>
-          <img id="image${data.id}" src="${data.image}" class="img-fluid pt-2 px-2">
-      
-          <div class="card-body">
-              <p class="card-title text-center" id="menu${data.id}">${data.productName}</p><hr>
-              <p class="card-text text-center" id="price${data.id}">₱ ${data.price}.00</p>
-              
-              <div class="container d-flex justify-content-center position-absolute bottom-0 start-50 translate-middle-x mb-2">
-                  <button class="btn btn-sm me-2" onclick="addToWishlist(${data.id})"><i class="fa-regular fa-heart"></i></button>
-                  <button class="btn btn-sm" onclick="addToCart(${data.id})"><i class="fa-solid fa-cart-shopping"></i></button>
+  productsToDisplay.forEach(function (data) {
+    menulist += `
+      <!-- Single Product Start -->
+      <div class="card single-product position-relative mb-30">
+          <div class="product-image">
+              <a class="d-block" href="product-details.html">
+                  <img src="${data.image1}" alt="" class="product-image-1 w-100">
+                  <img src="${data.image2}" alt="" class="product-image-2 position-absolute w-100">
+              </a>
+              <span class="onsale">Sale!</span>
+              <div class="add-action d-flex flex-column position-absolute">
+                  <a href="#exampleModalCenter" title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                      <i class="bi bi-eye" data-toggle="tooltip" data-placement="left" title="Quick View"></i>
+                  </a>
               </div>
           </div>
-        </div>
+          <div class="product-content">
+              <div class="product-title">
+                  <h4 class="title-2"> <a href="product-details.html">${data.title}</a></h4>
+              </div>
+              <div class="price-box">
+                  <span class="regular-price ">₱${data.price}</span>
+                  <span class="old-price"><del>₱${data.oldPrice}</del></span>
+              </div>
+              <a href="cart.html" class="btn product-cart"><i class="bi bi-bag-plus me-1"></i>Add to Cart</a>
+          </div>
       </div>
-          `;
-    });
-  }
-
-  menu.innerHTML = menulist;
+      <!-- Single Product End -->
+      `;
+  });
 }
+menu.innerHTML = menulist;
+
 
 // FILTER BY CATEGORY **************************************************************************
 function filterProductsByCategory(category) {

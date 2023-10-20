@@ -7253,6 +7253,20 @@ mark {
   }
 }
 
+.alert {
+  background-color: #a200ff;
+  color: #fff;
+  padding: .05px 0;
+  text-align: center;
+}
+
+.alert-text {
+  font-weight: bold;
+}
+
+
+
+
 /*----------------------------------------*/
 /*    Components - Breadcrumb
 /*----------------------------------------*/
